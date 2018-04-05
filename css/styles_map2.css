@@ -1,0 +1,116 @@
+@charset "UTF-8";
+/* CSS Document "map2" */
+
+/* Images */
+#image_draw{
+	width: auto;
+	height: 60px;
+	margin-bottom: 20px;
+	margin-top: 15px;
+	margin-left: 30px;
+}
+#image_finish{
+	width: auto;
+	height: 70px;
+}
+#image_slider{
+	width: auto;
+	height: 180px;
+}
+
+/* Slider */
+#ex1Slider .slider-selection {
+	background: #A9A9A9;
+}
+
+#ex2Slider .slider-selection {
+	background: #A9A9A9;
+}
+#ex3Slider .slider-selection {
+	background: #A9A9A9;
+}
+#ex4Slider .slider-selection {
+	background: #A9A9A9;
+}
+#ex5Slider .slider-selection {
+	background: #A9A9A9;
+}
+#ex6Slider .slider-selection {
+	background: #A9A9A9;
+}
+#ex7Slider .slider-selection {
+	background: #A9A9A9;
+}
+#ex8Slider .slider-selection {
+	background: #A9A9A9;
+}
+
+.slider-handle.round{
+	background: #6DBFCE !important;
+}
+/* Images sliders */
+.tematic-slider{
+	padding-top:5px; 
+	margin-left:0px; 
+	padding-left:0px;
+}
+
+.icon-slider{
+	padding:0px;
+	text-align:center;
+	color: #A9A9A9;
+	margin-right: 10px
+}
+
+
+/* Button drag&drop */
+.button_drag{
+	background-color: #f2f2f2;
+	margin-right: 10px;
+}
+
+/* Only for the mockups.  Show&hidden map image. Delete after. */
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+/*  End Show&hidden map image  */
+
+/* Radios */
+.radio-inline input[type="radio"]{
+	position: relative;
+}
+
+/* MEDIAS */
+
+@media (max-width:360px){
+	
+	#image_draw{
+		width: 250px;
+		height: auto;
+		margin-bottom: 15px;
+		margin-left: 10px;
+	}
+	#image_slider{
+		width: 290px;
+		height: auto;
+		padding-right: 30px;
+		margin-bottom: 15px;
+	}
+}
+
+@media (max-width:768px){
+	.personal_modal{
+		width: auto;
+	}
+	.radio-mobile{
+		width: 100%;
+	}
+	.radio-visible{
+		display: inline !important;
+	}
+	.radio-novisible{
+		display: none;
+	}
+
+}

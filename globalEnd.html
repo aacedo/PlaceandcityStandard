@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+<head>
+
+    <!--To load latest changes-->
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <!-- -------------------- -->
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--  Meta Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@engagingeo">
+    <meta name="twitter:title" content="Place and city">
+    <meta name="twitter:description" content="Participatory process of Lisbon.">
+    <meta name="twitter:image" content="http://farm8.staticflickr.com/7334/11858349453_e3f18e5881_z.jpg">
+
+    <title>Place and City</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/styles_general.css" rel="stylesheet" type="text/css"/>
+    <link href="css/styles_finish.css" rel="stylesheet" type="text/css"/>
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="css/leaflet.css" rel="stylesheet" type="text/css"/>
+    <link href="css/leaflet.draw.css" rel="stylesheet" type="text/css"/>
+
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer>
+        {lang: 'pt-PT'}
+    </script> -->
+
+</head>
+
+<body>
+<!-- ------------------------------- Navbar ----------------------------------------------------------------------------- -->
+<nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px">
+    <div class="container-fluid">
+        <div class="navbar-header name_navbar col-xs-4 col-sm-5 col-md-5 col-lg-5 visible-lg visible-md visible-sm">
+            <img src="img/Place and City logo.png" class="logo_phd">
+        </div>
+        <!--  Visible only xs  -->
+        <div class="navbar-header name_navbar col-xs-4 col-sm-5 col-md-5 col-lg-5 visible-xs">
+            <img src="img/Place and City logo.png" class="logo_phd">
+        </div>
+    </div>
+</nav>
+<!-- ------------------------------- End Navbar --------------------------------------------------------------------------- -->
+<div class="container-fluid">
+<!--  Progress bar -->
+    <div class="">
+      <div class="progress" style="height: 15px; margin-top: 0px; margin-bottom: 5px">
+        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; background-color: #6DBFCE; line-height:15px">
+            100%
+        </div>
+      </div>
+    </div>
+    <!-- ------------------------------- Header  -------------------------------------------------------------------- -->
+    <div class="show col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3 style="margin-top: 15px; text-align: center;">
+            <span langkey="global1"></span>
+        </h3>
+    </div>
+    <div class="no-float"></div>
+    <h4 langkey="global14" style="text-align: center">
+        Estas são as suas áreas importantes!
+    </h4>
+    <!-- ------------------------------- Map visible lg md sm  ------------------------------------------------------------- -->
+    <div id="pepe" class="col-lg-8 col-md-8 col-sm-8 visible-lg visible-md visible-sm" style="position: fixed; right: 0px;">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div id="map" style="height:70vh; position: relative;">
+                    <div style="position: absolute; top: 10px; left: 65px; z-index: 998">
+                        <span class="dropdown" style="margin-right: 5px">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="button-freguesia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom: 5px">
+                                <i class="fa fa-institution" aria-hidden="true"></i>
+                                <span langkey="map1-3">Freguesias</span>
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu" style="min-width: 250px; margin: 12px 0 0">
+                                <ul class="dropdown-map col-lg-6 col-md-6 col-sm-6 col-xs-6"
+                                aria-labelledby="dropdown-freguesias">
+                                    <li><a href="#" id="d-ajuda">Ajuda</a></li>
+                                    <li><a href="#" id="d-alcantara">Alcântara</a></li>
+                                    <li><a href="#" id="d-alvalade">Alvalade</a></li>
+                                    <li><a href="#" id="d-areeiro">Areeiro</a></li>
+                                    <li><a href="#" id="d-arroios">Arroios</a></li>
+                                    <li><a href="#" id="d-avenidas">Avenidas Novas</a></li>
+                                    <li><a href="#" id="d-beato">Beato</a></li>
+                                    <li><a href="#" id="d-belem">Belém</a></li>
+                                    <li><a href="#" id="d-benfica">Benfica</a></li>
+                                    <li><a href="#" id="d-campo">Campo de Ourique</a></li>
+                                    <li><a href="#" id="d-campolide">Campolide</a></li>
+                                    <li><a href="#" id="d-carnide">Carnide</a></li>
+                                    <li><a href="#" id="d-estrela">Estrela</a></li>
+                                </ul>
+                                <ul class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dropdown-map"
+                                aria-labelledby="dropdown-freguesias">
+                                    <li><a href="#" id="d-lumiar">Lumiar</a></li>
+                                    <li><a href="#" id="d-marvila">Marvila</a></li>
+                                    <li><a href="#" id="d-misericordia">Misericórdia</a></li>
+                                    <li><a href="#" id="d-olivais">Olivais</a></li>
+                                    <li><a href="#" id="d-parque">Parque das Nações</a></li>
+                                    <li><a href="#" id="d-penha">Penha de França</a></li>
+                                    <li><a href="#" id="d-santa">Santa Clara</a></li>
+                                    <li><a href="#" id="d-santamaria">Santa Maria Maior</a></li>
+                                    <li><a href="#" id="d-santo">Santo António</a></li>
+                                    <li><a href="#" id="d-sao">São Domingos de Benfica </a></li>
+                                    <li><a href="#" id="d-saovicente">São Vicente</a></li>
+                                </ul>
+                            </div>
+                        </span>
+                    </div>
+                    <div  class="legend" style="position: absolute; bottom: 5px; left: 10px; z-index: 998">
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style="float: left; margin: 0px; padding: 0px">
+                            <div class="foo blue"></div>
+                            <div class="legend-name" style="margin-right: 20px"> 
+                                <span langkey="finish2">Sentido do local</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style="float: left;margin: 0px; padding: 0px">
+                            <div class="foo purple"></div>
+                            <div class="legend-name" style="margin-right: 20px">
+                                <span langkey="finish3"> Capital social</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style="float: left; margin: 0px; padding: 0px">
+                            <div class="foo wine"></div>
+                            <div class="legend-name"> 
+                                <span langkey="finish4">Comprometimento cívico </span>
+                            </div>
+                        </div>
+                    </div> <!-- /.legend -->
+                </div> <!-- /#map -->
+            </div> <!-- /.panel-body -->
+        </div> <!-- /.panel-default -->
+    </div> <!-- /.col6 -->
+    <!-- ------------------------------- End Map visible lg md sm  --------------------------------------------------------- -->
+
+    <!-- ------------------------------- Panel left ----------------------------------------------------------------------- -->
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <!--  ----------- Dinamic table ---------- -->
+                <div class="hidden col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span class="glyphicon glyphicon-check btn-lg icon_normal"></span>
+                    <h3><span langkey="global1">Agradecemos a sua participação</span></h3>
+                    <div id="table" style="height: 500px; margin-bottom: 20px; margin-top: 20px"></div>
+                </div> <!-- /dinamic table -->
+
+                <!--  ----------- Goodbye ---------- -->
+                <div class="show col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div id="mailtwitter" class="show">
+                        <p>
+                            <span langkey="global2">Vamos criar áreas que o vão ligar com outras pessoas que partilham os seus locais e os seus grupos!! Se estiver interessado em ser parte destas novas áreas de comprometimento ou apenas saber mais sobre o projeto, indique-nos por favor o seu email e/ou a sua conta de twitter. Juntos, vamos melhorar a participação em Lisboa.</span>
+                        </p>
+                        <form class="form-horizontal" style="margin-top: 30px; margin-bottom: 20px">
+                            <div class="form-group" style="margin-bottom: 10px">
+                                <label for="mail_user"> Email</label>
+                                <input type="email" class="form-control" id="mail_user" placeholder="jane.doe@example.com">
+                            </div>
+                        </form>
+                        <form class="form-horizontal" style="margin-top: 30px; margin-bottom: 20px">
+                            <div class="form-group" style="margin-bottom: 10px">
+                                <label for="twitter_name" langkey="global3"> Conta de Twitter</label>
+                                <input class="form-control" id="twitter_name" placeholder="@janedoe">
+                            </div>
+                        </form>
+                        <a type="button" id="finishBtn" class="btn btn-primary float-right"><span langkey="global4">Enviar</span></a>
+                    </div>
+                    <div class="no-float"></div>
+                    <!--  Social media  -->
+                    <div style="margin-bottom: 15px; margin-top: 30px; text-align: center;">
+                        
+                        <!--  Facebook  -->
+                        <!-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fplaceandcity.com&layout=button&size=small&mobile_iframe=true&appId=1255866227829550&width=81&height=20" width="90" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe> -->
+
+                        <!--  Twitter  -->
+                        <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://placeandcity.com/" data-lang="pt"><span langkey="global5">Tweetar</span></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
+
+                        <!--  Google+  -->
+                        <!-- <span class="g-plus" data-action="share" data-annotation="none" data-href="http://placeandcity.com/engagingeographies/"></span>  -->
+                    </div>
+                    <h3 style="margin-top: 50px; text-align: center;">
+                        <span langkey="global6">Até à próxima :)</span>
+                    </h3>
+                    <div class="no-float"></div>
+                    <hr>
+                    <div style="text-align: center;">
+                        <img src="img/Place and City.png" id="logo_place">
+                        <img src="img/camara.jpeg" id="logo_camara">
+                        <img src="img/geoc.png" id="logo_geoc">
+                        <img src="img/mariecurie.png" id="logo_marie">
+                        <img src="img/nova.png" id="logo_nova">
+                        <img src="img/munster.png" id="logo_munster">
+                        <img src="img/uji.png" id="logo_uji">
+                    </div>
+                </div> <!-- /goodbye -->
+            </div> <!-- .panel-body -->
+        </div> <!-- .panel-default -->
+    </div>   <!-- .col-6 -->
+    <div class="no-float"></div>
+    <!-- ------------------------------- End Panel left -------------------------------------------------------------------- -->
+
+
+    <!-- ------------------------------- Map visible xs ---------------------------------------------------------------- -->
+    <div class="visible-xs col-xs-12 hidden" id="pepa" style="padding: 0px; padding-top: 30px">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div id="map2" style="height:83vh; position: relative;">
+                    <div style="position: absolute; top: 10px; left: 40px; z-index: 998">
+                        <div class="col-xs-12">
+                            <button class="btn btn-default btn-xs" id="draw_polyxs" style="margin-bottom: 3px" disabled>
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-right: 5px"></span>
+                                <span langkey="map1-1">Comece a desenhar</span>
+                            </button>
+                            <button class="btn btn-default btn-xs" id="delete_polyxs" style="margin-bottom: 3px" disabled>
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-right: 5px"></span> 
+                                <span langkey="map1-2">Apagar áreas</span>
+                            </button>
+                        </div>
+                        <div class="col-xs-12">
+                            <span class="dropdown" style="margin-right: 5px">
+                              <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdown-freguesias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="button-freguesiaxs">
+                                <span langkey="map1-3">Freguesias</span>
+                                <span class="caret"></span>
+                              </button>
+                              <div class="dropdown-menu" style="min-width: 180px; margin: 8px 0 0">
+                                <ul class="dropdown-map col-xs-6" aria-labelledby="dropdown-freguesias" style="margin: 0px; padding: 0px">
+                                  <li><a href="#" id="d-ajuda-xs">Ajuda</a></li>
+                                  <li><a href="#" id="d-alcantara-xs">Alcântara</a></li>
+                                  <li><a href="#" id="d-alvalade-xs">Alvalade</a></li>
+                                  <li><a href="#" id="d-areeiro-xs">Areeiro</a></li>
+                                  <li><a href="#" id="d-arroios-xs">Arroios</a></li>
+                                  <li><a href="#" id="d-avenidas-xs">Avenidas Novas</a></li>
+                                  <li><a href="#" id="d-beato-xs">Beato</a></li>
+                                  <li><a href="#" id="d-belem-xs">Belém</a></li>
+                                  <li><a href="#" id="d-benfica-xs">Benfica</a></li>
+                                  <li><a href="#" id="d-campo-xs">Campo de Ourique</a></li>
+                                  <li><a href="#" id="d-campolide-xs">Campolide</a></li>
+                                  <li><a href="#" id="d-carnide-xs">Carnide</a></li>
+                                  <li><a href="#" id="d-estrela-xs">Estrela</a></li>
+                                </ul>
+                                <ul class="col-xs-6 dropdown-map" aria-labelledby="dropdown-freguesias" style="margin: 0px; padding: 0px">
+                                  <li><a href="#" id="d-lumiar-xs">Lumiar</a></li>
+                                  <li><a href="#" id="d-marvila-xs">Marvila</a></li>
+                                  <li><a href="#" id="d-misericordia-xs">Misericórdia</a></li>
+                                  <li><a href="#" id="d-olivais-xs">Olivais</a></li>
+                                  <li><a href="#" id="d-parque-xs">Parque das Nações</a></li>
+                                  <li><a href="#" id="d-penha-xs">Penha de França</a></li>
+                                  <li><a href="#" id="d-santa-xs">Santa Clara</a></li>
+                                  <li><a href="#" id="d-santamaria-xs">Santa Maria Maior</a></li>
+                                  <li><a href="#" id="d-santo-xs">Santo António</a></li>
+                                  <li><a href="#" id="d-sao-xs">São Domingos de Benfica </a></li>
+                                  <li><a href="#" id="d-saovicente-xs">São Vicente</a></li>
+                                </ul>
+                              </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------- End Map visible xs ---------------------------------------------------------------- -->
+
+</div> <!-- .container fluid -->
+
+<!-- ------------------------------- Modal  satisfaction questions ---------------------------------------------------------- -->
+<div class="modal fade" id="myModalsatisfaction" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close close-modal" id="icon-link" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                <b><span langkey="global7">Your opinion is important!</span></b>
+            </div>
+            <div class="modal-body">
+                <!--  Explanation of the process of drawing  -->
+                <h5 style="margin-bottom: 30px">
+                    <span langkey="global8">Please give your opinion about the following issues. (where 0 is nothing and 5 is totally)</span>
+                </h5>
+                <div class="no-float"></div>
+                <div>
+                    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;">
+                        <span langkey="global9">How difficult have you found to answer the questions?</span>
+                    </p>
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px">
+                        <label class="radio-inline personal_radio" style="margin-top: -10px; font-size: 12px;">
+                            <span langkey="global12" style="margin-left: -20px; margin-right: 20px">Nunca</span>
+                            <input type="radio" name="di1" value="0"> 0
+                        </label>
+                        <label class="radio-inline personal_radio" style="margin-top: -10px; font-size: 12px;">
+                            <input type="radio" name="di1" value="1"> 1
+                        </label>
+                        <label class="radio-inline" style="margin-top: -10px; margin-left: 10px; font-size: 12px">
+                            <input type="radio" name="di1" value="2"> 2
+                        </label>
+                        <label class="radio-inline" style="margin-top: -10px; margin-left: 10px; font-size: 12px">
+                            <input type="radio" name="di1" value="3"> 3
+                        </label>
+                        <label class="radio-inline" style="margin-top: -10px; margin-left: 10px; font-size: 12px">
+                            <input type="radio" name="di1" value="4"> 4
+                        </label>
+                        <label class="radio-inline" style="margin-top: -10px; margin-left: 10px; font-size: 12px">
+                            <input type="radio" name="di1" value="5"> 5 <span langkey="global13">Todos os dias</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="no-float"></div>
+                <div>
+                    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;">
+                        <span langkey="global10">How difficult have you found the mapping process?</span>
+                    </p>
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px">
+                        <label class="radio-inline personal_radio" style="margin-top: -10px; font-size: 12px;">
+                            <span langkey="global12" style="margin-left: -20px; margin-right: 20px">Nunca</span>
+                            <input type="radio" name="dm1" value="0"> 0
+                        </label>
+                        <label class="radio-inline personal_radio" style="margin-top: -10px; font-size: 12px;">
+                            <input type="radio" name="dm1" value="1"> 1
+                        </label>
+                        <label class="radio-inline" style="margin-top: -10px; margin-left: 10px; font-size: 12px">
+                            <input type="radio" name="dm1" value="2"> 2
+                        </label>
+                        <label class="radio-inline" style="margin-top: -10px; margin-left: 10px; font-size: 12px">
+                            <input type="radio" name="dm1" value="3"> 3
+                        </label>
+                        <label class="radio-inline" style="margin-top: -10px; margin-left: 10px; font-size: 12px">
+                            <input type="radio" name="dm1" value="4"> 4
+                        </label>
+                        <label class="radio-inline" style="margin-top: -10px; margin-left: 10px; font-size: 12px">
+                            <input type="radio" name="dm1" value="5"> 5 <span langkey="global13">Todos os dias</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="no-float"></div>
+                <div>
+                    <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;">
+                        <span langkey="global11">Please, if you want put some comment to improve the application.</span>
+                    </p>
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px">
+                        <textarea class="form-control" id="comment" rows="6"></textarea>
+                    </div>
+                </div>
+            </div> <!--/.modal-body -->
+            <div class="no-float"></div>
+            <div class="modal-footer" style="border:none;">
+                <div class="float-right">
+                    <button type="button" id="finishglobalend" class="btn btn-primary btn-next">
+                        <span langkey="index9">Terminado</span>
+                    </button>
+                </div>
+            </div>
+        </div> <!--/.modal-content -->
+    </div> <!--/.modal-dialog -->
+</div> <!--/.modal fade -->
+
+
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/leaflet.js"></script>
+<script src="js/leaflet-src.js"></script>
+<script src="js/leaflet.draw.js"></script>
+<script src="js/bootstrap-slider.js"></script>
+
+
+<script src="src/edit/handler/Edit.Poly.js"></script>
+<script src="src/edit/handler/Edit.SimpleShape.js"></script>
+<script src="src/edit/handler/Edit.Circle.js"></script>
+<script src="src/edit/handler/Edit.Rectangle.js"></script>
+<script src="js/functions_globalEnd.js"></script>
+
+<script src="src/draw/handler/Draw.Feature.js"></script>
+<script src="src/draw/handler/Draw.Polyline.js"></script>
+<script src="src/draw/handler/Draw.Polygon.js"></script>
+<script src="src/draw/handler/Draw.SimpleShape.js"></script>
+<script src="src/draw/handler/Draw.Rectangle.js"></script>
+<script src="src/draw/handler/Draw.Circle.js"></script>
+<script src="src/draw/handler/Draw.Marker.js"></script>
+
+<script src="src/ext/TouchEvents.js"></script>
+<script src="src/ext/LatLngUtil.js"></script>
+<script src="src/ext/GeometryUtil.js"></script>
+<script src="src/ext/LineUtil.Intersect.js"></script>
+<script src="src/ext/Polyline.Intersect.js"></script>
+<script src="src/ext/Polygon.Intersect.js"></script>
+
+<script src="src/Control.Draw.js"></script>
+<script src="src/Tooltip.js"></script>
+<script src="src/Toolbar.js"></script>
+
+<script src="src/draw/DrawToolbar.js"></script>
+<script src="src/edit/EditToolbar.js"></script>
+<script src="src/edit/handler/EditToolbar.Edit.js"></script>
+<script src="src/edit/handler/EditToolbar.Delete.js"></script>
+
+<script src="js/API/lib.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+
+			firebase.initializeApp({
+				apiKey: "AIzaSyBwgs-qsN_KmDtp2VeI6dhSoylkzJaexcM",
+				authDomain: "experiment-9e514.firebaseapp.com",
+				projectId: "experiment-9e514"
+			});
+			db = firebase.firestore();
+
+        var savedStrData = util.getFromLocalStorage(util.interPageDataKey);
+        id = savedStrData.id;
+        /*if(!id){
+           // window.location.href = "index.html";
+        }*/
+        startAll();
+    });
+
+</script>
+
+
+</body>
+</html>

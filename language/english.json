@@ -1,0 +1,37 @@
+
+
+function languages(lang, text) {
+//English
+
+
+var en = {
+
+
+'title_done1': 'we cannot obtain your location!',
+'editedSchool': 'You drawn or edited you school!',
+'pointsMapAndImage': 'It shortage some points in MAP and IMAGE',
+'pointsMap': 'It shortage some points in MAP',
+'pointsImage': 'It shortage some points in IMAGE',
+'mistake': 'There was an error, please try again',
+'imageDelete': 'Image Deleted',
+'imageDeleteMistake': 'This image does not exist in the image server.',
+'nameSchoolNoExist': 'Register new school',
+'noIntersectLines': 'Can&#39;t intersect the line with other polygons',
+'noContainPoints': 'Can&#39;t add points within the polygons',
+'uploadingImage': 'Successfully uploaded. We are transforming the image. It can take up to 2 -3 min before this changes take effect.',
+'dashSaved': 'Saved!',
+'dashSaveChanges': 'Save Changes',
+'on': 'On',
+'off': 'Off',
+'done': 'Done',
+'missing': 'Missing',
+'errorConfiguration': 'Could not load configuration. Try again later.',
+'percentDone': ' % done',
+'dashTrPlanted': 'Treasures Planted \n Total: ',
+'dashTrFound': 'Treasures Found \n Total: ',
+'dashFiCaptured': 'Locations captured \n Total: ',
+'totalStudents': 'Total Students: ',
+'errorNoBoundary': 'Before realise this step, you have to do the first step, visit him',
+'checkFp': 'Sorry, you only can activate this phase when the phase 1 has at least 80%'
+};
+}

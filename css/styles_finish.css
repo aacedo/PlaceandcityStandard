@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* CSS Document General */
+
+#logo_place{
+	width: 80px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+#logo_camara{
+	width: 60px;
+	margin-bottom: 20px;
+	margin-right: 40px;
+	margin-left: 40px;
+}
+
+#logo_geoc{
+	width: 100px;
+	margin-bottom: 20px;
+	margin-right: 40px;
+	margin-left: 40px;
+}
+#logo_marie{
+	width: 100px;
+	margin-bottom: 20px;
+	margin-right: 40px;
+	margin-left: 40px;
+}
+#logo_nova{
+	width: 60px;
+	margin-bottom: 20px;
+	margin-right: 40px;
+	margin-left: 40px;
+}
+#logo_munster{
+	width: 100px;
+	margin-bottom: 20px;
+	margin-right: 40px;
+	margin-left: 40px;
+}
+#logo_uji{
+	width: 60px;
+	margin-bottom: 20px;
+	margin-right: 40px;
+	margin-left: 40px;
+}
+
+/* Radios */
+.radio-inline input[type="radio"]{
+	position: relative;
+}

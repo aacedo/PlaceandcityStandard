@@ -1,0 +1,752 @@
+<!doctype html>
+<html>
+<head>
+
+    <!--To load latest changes-->
+    <meta http-equiv="cache-control" content="max-age=0"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <!-- -------------------- -->
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Place and City</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/styles_general.css" rel="stylesheet" type="text/css"/>
+    <link href="css/styles_map2.css" rel="stylesheet" type="text/css"/>
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="css/leaflet.css" rel="stylesheet" type="text/css"/>
+    <link href="css/leaflet.draw.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap-slider.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+<!-- ------------------------------- Navbar ------------------------------------------------------------------------------- -->
+<nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px">
+  <div class="container-fluid">
+    <div class="navbar-header name_navbar col-xs-4 col-sm-5 col-md-5 col-lg-5 visible-lg visible-md visible-sm">
+      <img src="img/Place and City logo.png" class="logo_phd">
+    </div>
+    <!--  Visible only xs  -->
+    <div class="navbar-header name_navbar col-xs-4 col-sm-5 col-md-5 col-lg-5 visible-xs">
+      <img src="img/Place and City logo.png" class="logo_phd">
+    </div>
+    <ul class="nav navbar-right float-right col-lg-5 col-md-5 col-sm-5 col-xs-8" style="padding-right: 0px;">
+      <li class="float-right visible-lg visible-md visible-sm links-navbar">
+        <a href="#" style="margin-right:20px; padding: 0px" data-toggle="modal" data-target="#myModal3">
+          <span class="glyphicon glyphicon-info-sign btn-lg icon-navbar"></span><br>Help
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- ------------------------------- End Navbar ---------------------------------------------------------------------------- -->
+<div class="container-fluid">
+  <!--  Progress bar -->
+  <div class="">
+    <div class="progress" style="height: 15px; margin-top: 0px; margin-bottom: 5px">
+      <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; background-color: #6DBFCE; line-height:15px">
+        80%
+      </div>
+    </div>
+  </div>
+  <!-- ------------------------------- Map visible lg md sm  -------------------------------------------------------------- -->
+  <div id="pepe" class="col-lg-6 visible-lg hidden" style="position: fixed; right: 0px;">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div id="map" style="height:80vh; position: relative;">
+          <div class="visible-lg visible-md visible-sm" style="position: absolute; top: 10px; left: 55px; z-index: 999">
+            <div class="col-lg-12 col-md-12 col-sm-12 width-buttons-map">
+              <span class="dropdown" style="margin-right: 5px;">
+                <button class="btn btn-default dropdown-toggle" type="button" id="button-freguesia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom: 5px">
+                    <i class="fa fa-institution" aria-hidden="true"></i>
+                    <span langkey="map1-3">Freguesias</span>
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" style="min-width: 250px; margin: 12px 0 0">
+                  <ul class="dropdown-map col-lg-6 col-md-6 col-sm-6 col-xs-6" aria-labelledby="dropdown-freguesias">
+                    <li><a href="#" id="d-ajuda">Ajuda</a></li>
+                    <li><a href="#" id="d-alcantara">Alcântara</a></li>
+                    <li><a href="#" id="d-alvalade">Alvalade</a></li>
+                    <li><a href="#" id="d-areeiro">Areeiro</a></li>
+                    <li><a href="#" id="d-arroios">Arroios</a></li>
+                    <li><a href="#" id="d-avenidas">Avenidas Novas</a></li>
+                    <li><a href="#" id="d-beato">Beato</a></li>
+                    <li><a href="#" id="d-belem">Belém</a></li>
+                    <li><a href="#" id="d-benfica">Benfica</a></li>
+                    <li><a href="#" id="d-campo">Campo de Ourique</a></li>
+                    <li><a href="#" id="d-campolide">Campolide</a></li>
+                    <li><a href="#" id="d-carnide">Carnide</a></li>
+                    <li><a href="#" id="d-estrela">Estrela</a></li>
+                  </ul>
+                  <ul class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dropdown-map" aria-labelledby="dropdown-freguesias">
+                    <li><a href="#" id="d-lumiar">Lumiar</a></li>
+                    <li><a href="#" id="d-marvila">Marvila</a></li>
+                    <li><a href="#" id="d-misericordia">Misericórdia</a></li>
+                    <li><a href="#" id="d-olivais">Olivais</a></li>
+                    <li><a href="#" id="d-parque">Parque das Nações</a></li>
+                    <li><a href="#" id="d-penha">Penha de França</a></li>
+                    <li><a href="#" id="d-santa">Santa Clara</a></li>
+                    <li><a href="#" id="d-santamaria">Santa Maria Maior</a></li>
+                    <li><a href="#" id="d-santo">Santo António</a></li>
+                    <li><a href="#" id="d-sao">São Domingos de Benfica </a></li>
+                    <li><a href="#" id="d-saovicente">São Vicente</a></li>
+                  </ul>
+                </div>
+              </span>
+              <button class="btn btn-default btn-md" id="draw_poly" style="margin-bottom: 3px" disabled>
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-right: 5px"></span> <span langkey="map1-1">Comece a desenhar</span>
+              </button>
+              <button class="btn btn-default btn-md" id="delete_poly" style="margin-bottom: 3px" disabled>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-right: 5px"></span>
+                <span langkey="map1-2">Apagar áreas</span>
+              </button>
+              <!-- </div> -->
+            </div> <!-- /.col -->
+          </div> <!-- /.visible -->
+        </div> <!-- /#map -->
+      </div> <!-- /.panel-body -->
+    </div> <!-- /.panel-default -->
+  </div> <!-- /.col6 -->
+  <!-- ------------------------------- End map ----------------------------------------------------------------------------- -->
+
+  <!-- ------------------------------- Panel left -------------------------------------------------------------------------- -->
+  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <!-- -------------------- Draw areas ce first ------------------------- -->
+        <div class="hidden" id="draw_ce">
+          <p>
+            <span style="margin-bottom: 20px" langkey="map3-1">Pode por favor desenhar as áreas nas quais gostaria de participar em processos participativos</span>
+            <span langkey="map1-12a"></span>
+            <b langkey="map1-12b">using the </b><span langkey="map1-12c">using the </span>
+          </p>
+          <br>
+          <ul>
+            <li>
+              <p>
+                <span langkey="map1-17">Puedes ir a un barrio específico utilizando el botón</span>
+                <b langkey="map1-17a"></b><span langkey="map1-12c">using the </span>
+              </p>
+            </li>
+            <li>
+              <p>
+                <span langkey="map1-15">Se necessitar, pode apagar a área pressionando o </span>
+                <b langkey="map1-15a"></b><span langkey="map1-12c">using the </span>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <!-- -------------------- End Draw areas ce first end ------------------------- -->
+
+        <!-- --------------------- Draw areas ce next ---------------------------------- -->
+        <div class="hidden" id="live_area">
+          <p style="margin-top: 20px; font-weight: bold" langkey="map2-32">
+            Reside nesta área?
+          </p>
+          <div>
+            <label class="radio-inline">
+              <input type="radio" name="live" value="true"> <span langkey="index5">Sim</span>
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="live" value="false" checked="checked"> 
+              <span langkey="index6">Não</span>
+            </label>
+          </div>
+        </div>
+        <div class="hidden" id="another_draw_ce">
+          <br>
+          <div>
+            <p langkey="map3-3">para continuar.</p>
+            <ul>
+              <li style="margin-bottom: 10px">
+                <span id="outra_area" langkey="map3-3a">Pode agora desenhar outra área onde gostaria de estar envolvido em processos participativos, ou clique no botão</span>
+              </li>
+              <b langkey="general20"></b>
+              <li style="margin-top: 10px">
+                <span langkey="map3-3b">para continuar.</span>
+                  <b langkey="index9"></b>
+                  <span langkey="map3-4">para continuar.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="finish_button" class="hidden" style="margin-top: 100px">
+          <a type="button" id="questions-ce" class="btn btn-primary finish-map float-right">
+            <span langkey="index9">Próximo</span>
+          </a>
+        </div>
+        <!-- ---------------- End Draw areas ce next  ---------------------- -->
+
+        <!-- --------------------  Questions  ---------------------------- -->
+        <div class="show" id="questions_done">
+          <h5>
+            <span langkey="map3-5">Estamos quase a terminar. Por favor responda às seguintes perguntas sobre a cidade de Lisboa.</span>
+          </h5>
+          <hr style="width: 100%">
+          <h4 style="margin-bottom: 20px; padding-top: 0px; margin-top: 30px" langkey="map3-6">
+            Comprometimento cívico.
+          </h4>
+          <div class="no-float">
+          <div>
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px">
+              <span langkey="map3-7">Nos últimos 12 meses, juntou-se com outros membros do grupo para tratar de um problema</span>
+            </p>
+            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px">
+              <label class="radio-inline personal_radio radio-novisible" style="font-size: 12px;">
+                <span langkey="map2-46" style="margin-left: -20px; margin-right: 20px">Nunca</span>
+                <input type="radio" name="ce1" value="1"> 1
+              </label>
+              <!-- Visible only mobile    -->
+              <label class="radio-inline personal_radio radio-visible" style="font-size: 12px; display: none">
+                <input type="radio" name="ce1" value="1"> 1
+                <span langkey="map2-46" style="margin-right: 20px">Nunca</span>
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce1" value="2"> 2
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce1" value="3"> 3
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce1" value="4"> 4
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce1" value="5"> 5 
+                <span langkey="map2-47">Todos os dias</span>
+              </label>
+            </div>
+          </div>
+          <div class="no-float"></div>
+          <div>
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px">
+              <span langkey="map3-8">Nos últimos 12 meses, interagiu com alguma autoridade local ou organização governamental sobre problemas comuns?</span>
+            </p>
+            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px">
+              <label class="radio-inline personal_radio radio-novisible" style="font-size: 12px;">
+                <span langkey="map2-46" style="margin-left: -20px; margin-right: 20px">Nunca</span>
+                <input type="radio" name="ce2" value="1"> 1
+              </label>
+              <!-- Visible only mobile    -->
+              <label class="radio-inline personal_radio radio-visible" style="font-size: 12px;display: none">
+                <input type="radio" name="ce2" value="1"> 1
+                <span langkey="map2-46" style="margin-right: 20px">Nunca</span>
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce2" value="2"> 2
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce2" value="3"> 3
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce2" value="4"> 4
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce2" value="5"> 5 
+                <span langkey="map2-47">Todos os dias</span>
+              </label>
+            </div>
+          </div>
+          <div class="no-float"></div>
+          <div>
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px">
+              <span langkey="map3-9">Nos últimos 12 meses, trabalho com alguma autoridade local ou organização governamental sobre problemas comuns?</span>
+            </p>
+            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12" style="padding-left: 5px; padding-right: 5px; margin-bottom: 20px">
+              <label class="radio-inline personal_radio radio-novisible" style="font-size: 12px;">
+                <span langkey="map2-46" style="margin-left: -20px; margin-right: 20px">Nunca</span>
+                <input type="radio" name="ce3" value="1"> 1
+              </label>
+              <!-- Visible only mobile    -->
+              <label class="radio-inline personal_radio radio-visible" style="font-size: 12px; display: none;">
+                <input type="radio" name="ce3" value="1"> 1
+                <span langkey="map2-46" style="margin-right: 20px">Nunca</span>
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce3" value="2"> 2
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce3" value="3"> 3
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce3" value="4"> 4
+              </label>
+              <label class="radio-inline radio-mobile" style="margin-left: 10px; font-size: 12px">
+                <input type="radio" name="ce3" value="5"> 5 
+                <span langkey="map2-47">Todos os dias</span>
+              </label>
+            </div>
+          </div>
+          <div class="no-float"></div>
+          <a type="button" class="btn btn-primary float-right display_questions  display_title" id="ce_done" onclick="changeclass();">
+            <span langkey="index9">Próximo </span>
+          </a>
+        </div>
+        </div> <!--  ??????  -->
+        <!-- -------------------  End questions ----------------------- -->
+
+        <!-- -------------------  Help  ----------------------- -->
+        <div id="help" class="hidden" style="background-color: #e7e7e7; padding: 20px">
+          <p>
+            <span langkey="map1-80"> Para dibujar las áreas:</span>
+          </p>
+          <br>
+          <ul style="list-style-type:decimal">
+            <li>
+              <p>
+                <span langkey="map1-82">Define el primer punto con un clic donde quieras empezar a dibujar en el mapa</span>
+              </p>
+            </li>
+            <li>
+              <p>
+                <span langkey="map1-83">Define todos los puntos necesarios para dibujar el área con un clic para cada uno</span>
+              </p>
+            </li>
+            <li>
+              <p>
+                <span langkey="map1-84">Para acabar de definir el área, clica en el primer punto que definiste o haz doble clic cuando definas el último punto</span>
+              </p>
+            </li>
+          </ul>
+          <p>
+            <span langkey="map1-85">* You can exit the drawing option by pressing the 'escape' key on your keyboard</span>
+          </p>
+        </div>
+        <!-- -------------------  End Help  ----------------------- -->
+        <!-- -------------------  Yes / No  ----------------------- -->
+        <div id="yesno" class="hidden">
+          <p style="text-align: center; margin-top: 30px; font-weight: bold" langkey="general150">
+          </p>
+          <div style="text-align: center; margin-bottom: 40px">
+            <label class="radio-inline">
+              <input type="radio" name="participate" value="true" checked="checked"> 
+              <span langkey="index5"> Sim </span>
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="participate" value="false">
+              <span langkey="index6"> Não</span>
+            </label>
+          </div>
+          <div class="float-right">
+            <button type="button" class="btn btn-primary btn-next" data-dismiss="modal" aria-label="Close" href="#" langkey="index9" id="participate_button">Próximo
+            </button>
+          </div>
+        </div>
+        <!-- -------------------  End Yes / No  ----------------------- -->
+      </div> <!-- .panel-body -->
+    </div> <!-- .panel-default -->
+  </div> <!-- .col-6 -->
+  <!-- ------------------------------- End Panel left --------------------------------------------------------------------- -->
+  
+  <!-- ------------------------------- Map visible xs --------------------------------------------------------------------- -->
+<div class="visible-md visible-sm visible-xs col-md-12 col-sm-12 col-xs-12 hidden" id="pepa" style="padding: 0px; padding-top: 30px">
+    <div class="panel panel-default">
+        <div class="panel-body" style="position: relative;">
+          <div style="position: absolute; top: -25px; left: -15px; z-index: 1000;">
+            <div class="col-xs-12" style="padding-right: 0px">
+              <button class="btn btn-default btn-xs" id="draw_polyxs" style="margin-bottom: 3px" disabled>
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-right: 5px"></span><span langkey="NUEVO">Desenhar</span>
+              </button>
+              <button class="btn btn-default btn-xs" id="delete_polyxs" style="margin-bottom: 3px" disabled>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-right: 5px"></span><span langkey="map1-2">Apagar áreas</span>
+              </button>
+              <span class="dropdown" style="margin-right: 5px">
+                <button class="btn btn-default dropdown-toggle btn-xs" type="button" id="dropdown-freguesias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="button-freguesiaxs">
+                  <i class="fa fa-institution" aria-hidden="true"></i>
+                  <span langkey="map1-3">Freguesias</span>
+                  <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" style="min-width: 180px; margin: 8px 0 0; left:-100px">
+                  <ul class="dropdown-map col-xs-6" aria-labelledby="dropdown-freguesias" style="margin: 0px; padding: 0px">
+                    <li><a href="#" id="d-ajuda-xs">Ajuda</a></li>
+                    <li><a href="#" id="d-alcantara-xs">Alcântara</a></li>
+                    <li><a href="#" id="d-alvalade-xs">Alvalade</a></li>
+                    <li><a href="#" id="d-areeiro-xs">Areeiro</a></li>
+                    <li><a href="#" id="d-arroios-xs">Arroios</a></li>
+                    <li><a href="#" id="d-avenidas-xs">Avenidas Novas</a></li>
+                    <li><a href="#" id="d-beato-xs">Beato</a></li>
+                    <li><a href="#" id="d-belem-xs">Belém</a></li>
+                    <li><a href="#" id="d-benfica-xs">Benfica</a></li>
+                    <li><a href="#" id="d-campo-xs">Campo de Ourique</a></li>
+                    <li><a href="#" id="d-campolide-xs">Campolide</a></li>
+                    <li><a href="#" id="d-carnide-xs">Carnide</a></li>
+                    <li><a href="#" id="d-estrela-xs">Estrela</a></li>
+                  </ul>
+                  <ul class="col-xs-6 dropdown-map" aria-labelledby="dropdown-freguesias" style="margin: 0px; padding: 0px">
+                    <li><a href="#" id="d-lumiar-xs">Lumiar</a></li>
+                    <li><a href="#" id="d-marvila-xs">Marvila</a></li>
+                    <li><a href="#" id="d-misericordia-xs">Misericórdia</a></li>
+                    <li><a href="#" id="d-olivais-xs">Olivais</a></li>
+                    <li><a href="#" id="d-parque-xs">Parque das Nações</a></li>
+                    <li><a href="#" id="d-penha-xs">Penha de França</a></li>
+                    <li><a href="#" id="d-santa-xs">Santa Clara</a></li>
+                    <li><a href="#" id="d-santamaria-xs">Santa Maria Maior</a></li>
+                    <li><a href="#" id="d-santo-xs">Santo António</a></li>
+                    <li><a href="#" id="d-sao-xs">São Domingos de Benfica </a></li>
+                    <li><a href="#" id="d-saovicente-xs">São Vicente</a></li>
+                  </ul>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="no-float"></div>
+          <div id="map2" style="height:83vh;">
+          </div>
+        </div>
+    </div>
+</div>
+  <!-- ------------------------------- End map ---------------------------------------------------------------------------- -->
+
+</div> <!-- .container fluid -->
+
+<!-- ------------------------------- Modal 3 Learn draw ------------------------------------------------------------------- -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close close-modal" id="icon-link" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="modal-header">
+        <h4 langkey="map1-41">Vamos começar! Leia por favor com atenção as instruções que se seguem</h4>
+      </div>
+      <div class="modal-body">
+        <!--  Explanation of the process of drawing  -->
+        <p>
+          <span langkey="map1-42">Isto é um questionário com base num mapa para a cidade de Lisboa. Convidamo-lo a desenhar áreas no mapa de forma livre.</span>
+        </p>
+        <ul>
+          <li>
+            <span langkey="map1-43">Pressione o botão</span>
+            <button class="btn btn-default btn-xs" disabled>
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-right: 5px"></span> 
+              <span langkey="map1-1">Comece a desenhar</span>
+            </button>
+            <span langkey="map1-12c">Pressione o botão</span>
+            <ul>
+              <li>
+                <span langkey="map1-44">situado ao centro na parte superior do mapa e clique no mapa para definir o seu primeiro ponto.</span>
+              </li>
+              <li>
+                <span langkey="map1-44ll">situado ao centro na parte superior do mapa e clique no mapa para definir o seu primeiro ponto.</span>
+              </li>
+            </ul>
+          </li>
+          <br>
+          <li>
+            <span langkey="map1-44g">Pode:</span>
+            <ul>
+              <li>
+                <span langkey="map1-44h">fazer alterações na forma do polígono movendo qualquer um dos pontos</span>
+              </li>
+              <li>
+                <span langkey="map1-44i">apagar o área clicando o botão</span>
+                  <button class="btn btn-default btn-xs" disabled>
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-right: 5px"></span> <span langkey="map1-2">Apagar área</span>
+                  </button>
+                </span> 
+                <span langkey="map1-12c">Pressione o botão</span>
+              </li>
+              <li>
+                <span langkey="map1-44j">You can "pan" the map or zoom </span> 
+                  <img src="img/mas.png" style="width: 30px; margin-bottom: 5px">
+                  <img src="img/menos.png" style="width: 30px;  margin-bottom: 5px">
+              </li>
+              <li>
+                <span langkey="map1-44l">go directly to a certain freguesia using the button</span>
+                <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
+                  <i class="fa fa-institution" aria-hidden="true"></i>
+                  <span langkey="map1-3">Freguesias</span>
+                  <span class="caret"></span>
+                </button> 
+                <span langkey="map1-12c">Pressione o botão</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+        <p>
+          <span langkey="map1-46">Gostaríamos de saber o que pensa sobre as áreas que desenhou. Nesse sentido, queira por favor responder às perguntas quando solicitado para tal. </span>
+        </p>
+        <span langkey="map1-48">Quando terminar de definir as suas áreas pode passar à próxima atividade, pressionando o botão </span>
+        <button type="button" class="btn btn-primary btn-next" disabled>
+          <span langkey="index9">Próximo</span>
+        </button>
+        <h3 style="text-align: center; margin-top: 40px">Happy mapping!!</h3>
+      </div> <!--/.modal-body -->
+      <div class="no-float"></div>
+      <div class="modal-footer" style="border:none;">
+        <div class="float-right">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" href="#">
+            <span langkey="general21">Termninado</span>
+          </button>
+        </div>
+      </div>
+    </div> <!--/.modal-content -->
+  </div> <!--/.modal-dialog -->
+</div> <!--/.modal fade -->
+<!-- ------------------------------- End Modal 3 -------------------------------------------------------------------------- -->
+
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet-src.js"></script>
+    <script src="js/leaflet.draw.js"></script>
+    <script src="js/bootstrap-slider.js"></script>
+    <script src="js/functions_map3.js"></script>
+
+
+    <script src="src/edit/handler/Edit.Poly.js"></script>
+    <script src="src/edit/handler/Edit.SimpleShape.js"></script>
+    <script src="src/edit/handler/Edit.Circle.js"></script>
+    <script src="src/edit/handler/Edit.Rectangle.js"></script>
+
+    <script src="src/draw/handler/Draw.Feature.js"></script>
+    <script src="src/draw/handler/Draw.Polyline.js"></script>
+    <script src="src/draw/handler/Draw.Polygon.js"></script>
+    <script src="src/draw/handler/Draw.SimpleShape.js"></script>
+    <script src="src/draw/handler/Draw.Rectangle.js"></script>
+    <script src="src/draw/handler/Draw.Circle.js"></script>
+    <script src="src/draw/handler/Draw.Marker.js"></script>
+
+    <script src="src/ext/TouchEvents.js"></script>
+    <script src="src/ext/LatLngUtil.js"></script>
+    <script src="src/ext/GeometryUtil.js"></script>
+    <script src="src/ext/LineUtil.Intersect.js"></script>
+    <script src="src/ext/Polyline.Intersect.js"></script>
+    <script src="src/ext/Polygon.Intersect.js"></script>
+
+    <script src="src/Control.Draw.js"></script>
+    <script src="src/Tooltip.js"></script>
+    <script src="src/Toolbar.js"></script>
+
+    <script src="src/draw/DrawToolbar.js"></script>
+    <script src="src/edit/EditToolbar.js"></script>
+    <script src="src/edit/handler/EditToolbar.Edit.js"></script>
+    <script src="src/edit/handler/EditToolbar.Delete.js"></script>
+
+    <script src="js/API/lib.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+					firebase.initializeApp({
+						apiKey: "AIzaSyBwgs-qsN_KmDtp2VeI6dhSoylkzJaexcM",
+						authDomain: "experiment-9e514.firebaseapp.com",
+						projectId: "experiment-9e514"
+					});
+					db = firebase.firestore();
+
+            var savedStrData = util.getFromLocalStorage(util.interPageDataKey);
+            if (savedStrData) {
+                id = savedStrData.id;
+                mapCenter = savedStrData.center;
+                if (!id) {
+                    window.location.href = "index.html";
+                }
+            }
+            else{
+                window.location.href = "index.html";
+            }
+            //startMapComponents();
+            startAll();
+        });
+    </script>
+
+
+    <script>
+        var map, drawnItems, drawControl;
+        var buttonDraw, buttonDelete;
+
+        function startMapComponents() {
+            zoommap = -100;
+
+            function isElementInViewport(el) {
+                if (typeof jQuery === "function" && el instanceof jQuery) {
+                    el = el[0];
+                }
+                var rect = el.getBoundingClientRect();
+                return !((rect.top == 0) && (rect.left == 0) && (rect.bottom == 0) && (rect.right == 0));
+            }
+
+
+            // Big Map
+            var map1 = L.map('map', {
+                scrollWheelZoom: false,
+            });
+            map1.on('load', function (e) {
+                if (isElementInViewport($('#map'))) {
+                    createAll(map1, $("#draw_poly"), $("#delete_poly"));
+                }
+            });
+            map1.setView(mapCenter, 12);
+
+            // Small Map
+            var mapxs = L.map('map2');
+            mapxs.on('load', function (e) {
+                if (isElementInViewport($('#map2'))) {
+                    createAll(mapxs, $("#draw_polyxs"), $("#delete_polyxs"));
+                }
+            });
+            mapxs.setView(mapCenter, 12);
+
+            function createAll(rmap, bdraw, bdelete) {
+                map = rmap;
+                buttonDraw = bdraw;
+                buttonDelete = bdelete;
+                // add an OpenStreetMap tile layer
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                    // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+                // Customize button draw polygon - personal contribution
+                var polygonDrawer = new L.Draw.Polyline(map);
+
+                // Initialise the FeatureGroup to store editable layers
+                drawnItems = new L.FeatureGroup();
+                map.addLayer(drawnItems);
+
+                // Initialise the draw control and pass it the FeatureGroup of editable layers
+                drawControl = new L.Control.Draw({
+                    //position: 'topright',
+                    draw: {
+                        polyline: false,
+                        polygon: false,
+                        rectangle: false,
+                        circle: false,
+                        marker: false
+                    },
+                    edit: {
+                        featureGroup: drawnItems,
+                        // Customize button delete polygon - personal contribution
+                        remove: false,
+                        // Edit polygon when you draw it - personal contribution
+                        edit: false
+                    }
+                });
+                map.addControl(drawControl);
+
+                map.on('draw:created', function (e) {
+                    var type = e.layerType, layer = e.layer;
+                    if (type === 'marker') {
+                        layer.bindPopup('A popup!');
+                    }
+                    // Edit polygon when you draw it - personal contribution
+                    e.layer.editing.enable();
+                    drawnItems.addLayer(layer);
+                    drawnItems.setStyle({color: '#00ff00'})
+//                zoommap = map.getZoom();
+//                map.fitBounds(drawnItems.getBounds(), null);
+                    $("#another_draw_ce").removeClass().addClass("show");
+                    $("#questions-ce").removeClass("hidden").addClass("show");
+                    $("#draw_ce").removeClass().addClass("hidden");
+                    $("#live_area").removeClass().addClass("show");
+                    buttonDelete.prop('disabled', false);
+                    $("#finish_button").removeClass().addClass("show");
+                    $('#button-freguesia').prop('disabled', false);
+                    $('#button-freguesiaxs').prop('disabled', false);
+                    var polygonData = {
+                        type: "cea",
+                        layer: L.geoJson(drawnItems.toGeoJSON()),
+                        //,livingIn = input...
+                    };
+
+                    CE.push(polygonData);
+
+                    map.removeLayer(drawnItems);
+                    drawnItems = new L.FeatureGroup();
+                    map.addLayer(drawnItems);
+                    map.addLayer(polygonData.layer);
+
+                    $("#help").removeClass("show").addClass("hidden");
+
+
+                });
+
+                map.on('draw:edited', function (e) {
+                    var layers = e.layers;
+                    var countOfEditedLayers = 0;
+                    layers.eachLayer(function (layer) {
+                        countOfEditedLayers++;
+                    });
+                    console.log("Edited " + countOfEditedLayers + " layers");
+                    //map.fitBounds(drawnItems.getBounds(), null);
+                });
+
+                // Customize button delete polygon - personal contribution
+                buttonDelete.on('click', function () {
+                    drawnItems.clearLayers();
+                    $("#draw_ce").removeClass().addClass("show");
+                    $("#another_draw_ce").removeClass().addClass("hidden");
+                    $("#live_area").removeClass().addClass("hidden");
+                    if (CE.length > 1) {
+                        map.removeLayer(CE[CE.length - 1].layer);
+                        CE.pop();
+                        $("#questions-ce").removeClass("hidden").addClass("show");
+
+                    }
+                    else if (CE.length == 1) {
+                        map.removeLayer(CE[CE.length - 1].layer);
+                        CE.pop();
+                        buttonDelete.prop('disabled', true);
+                        $("#questions-ce").removeClass("show").addClass("hidden");
+
+                    }
+                });
+
+                buttonDraw.on('click', function () {
+                    if ($("#live_area").is(":visible")) {
+                        CE[CE.length - 1].livingIn = (($("input[name=live]:checked").val()) === 'true');
+                    }
+                    var polygonDrawer = new L.Draw.Polygon(map, drawControl);
+                    polygonDrawer.enable();
+                    $("#live_area").removeClass().addClass("hidden");
+                    $('#button-freguesia').prop('disabled', true);
+                    $('#button-freguesiaxs').prop('disabled', true);
+                    buttonDelete.prop('disabled', true);
+                    $("#no_ce").removeClass().addClass("hidden");
+                    $("#help").removeClass("hidden").addClass("show");
+                    $("#finish_button").removeClass().addClass("hidden");
+                    $(document).keyup(function (e) {
+                        if ((e.keyCode == 27) && ($('#draw_ce').is(":visible"))) {
+                            $("#no_ce").removeClass().addClass("show");
+                            $("#help").removeClass("show").addClass("hidden");
+                            $('#button-freguesia').prop('disabled', false);
+                            $('#button-freguesiaxs').prop('disabled', false);
+                            buttonDelete.prop('disabled', false);
+
+
+                        }
+                        else if ((e.keyCode == 27) && ($('#another_draw_ce').is(":visible"))) {
+                            $("#finish_button").removeClass().addClass("show");
+                            $("#help").removeClass("show").addClass("hidden");
+                            $('#button-freguesia').prop('disabled', false);
+                            $('#button-freguesiaxs').prop('disabled', false);
+                            buttonDelete.prop('disabled', false);
+
+
+                        }
+                        else {
+                            $("#help").removeClass("show").addClass("hidden");
+                            $('#button-freguesia').prop('disabled', false);
+                            $('#button-freguesiaxs').prop('disabled', false);
+                            buttonDelete.prop('disabled', false);
+
+
+                        }
+                    });
+
+
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>

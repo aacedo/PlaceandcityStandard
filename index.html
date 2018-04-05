@@ -1,0 +1,719 @@
+<!doctype html>
+<html>
+<head>
+
+    <!--To load latest changes-->
+    <meta http-equiv="cache-control" content="max-age=0"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <!-- -------------------- -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Place and City</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/styles_general.css" rel="stylesheet" type="text/css"/>
+    <link href="css/styles_index.css" rel="stylesheet" type="text/css"/>
+    <link href="css/leaflet.css" rel="stylesheet" type="text/css"/>
+    <link href="css/leaflet.draw.css" rel="stylesheet" type="text/css"/>
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+<!-- ------------------------------- Modal 9 Project's explanation  ------------------------------------------------------- -->
+<div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!--  Language -->
+                <p>
+                    <input type="radio" name="language" value="en" checked>
+                    <img src="img/flags/24/United Kingdom(Great Britain).png" style="margin-left: 5px">
+                    <br>
+                    <input type="radio" name="language" value="pt">
+                    <img src="img/flags/24/Portugal.png" style="margin-left: 5px">
+                    <br>
+                    <input type="radio" name="language" value="es">
+                    <img src="img/flags/24/Spain.png" style="margin-left: 5px">
+                    <br>
+                </p>
+                <div id="mipruebaborrar" style="color:#0000FF"></div>
+
+
+                <!--  Project's explanation  -->
+                <p>
+                    <span langkey="index1">Este questionário é parte integrante de um projeto de investigação da Nova Information Management School (NOVA IMS) da Universidade Nova de Lisboa. O objetivo principal é perceber a forma como a perceção do local e as relações sociais do cidadão influenciam a sua participação numa dada área urbana.</span>
+                </p>
+                <p>
+                    <span langkey="index2">O preenchimento do questionário demora cerca de 5 minutos e a atividade de mapeamento cerca de 15 minutos, dependendo do número de áreas que se pretenderem assinalar.</span>
+                </p>
+                <!--<p>-->
+                <!--<b langkey="index2a"></b><b> nº <strike>10</strike>, nº <strike>50</strike>, nº <strike>100</strike>,</b><b langkey="index2b"></b>-->
+                <!--</p>-->
+                <p>
+                    <b><b langkey="index3a"></b> <u langkey="index3b"></u> <b langkey="index3c"></b></b>
+                </p>
+                <!--<p>-->
+                <!--<span langkey="index3">A sua contribuição apoia os processos participativos da cidade de Lisboa.</span>-->
+                <!--</p>-->
+                <p style="text-align: center; margin-top: 30px; font-weight: bold" langkey="index4">
+                    Reside em Lisboa?
+                </p>
+                <div style="text-align: center; margin-bottom: 40px">
+                    <label class="radio-inline">
+                        <input type="radio" name="lisbon_home" value="true" checked="checked"> <span langkey="index5"> Sim </span>
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="lisbon_home"  value="false"> <span langkey="index6"> Não</span>
+                    </label>
+                </div>
+                <p style="font-size: 12px">
+                    <span langkey="index7 "> Notas:</span>
+                    <br>
+                    <span langkey="index8">1.Todos os dados recolhidos neste questionário serão tratados de forma anónima e confidencial e não serão utilizados para fins comerciais ou cedidos a terceiros.</span>
+                    <br>
+                    <span langkey="index8a">2. Se pretender esclarecer alguma dúvida ou pedir alguma informação sobre este estudo, queira por favor contactar-nos através do seguinte endereço de email: acedo@novaims.unl.pt (Albert Acedo Sánchez) ou visite o nosso <a class="link-secondary" href="http://www.engagingeographies.com/blog">blog</a>.</span>
+                    <br>
+                </p>
+            </div> <!--/.modal-body -->
+            <div class="modal-footer" style="border:none;">
+                <div class="float-left" style="color: #A9A9A9; padding-top: 8px">
+                    1/4
+                </div>
+                <div class="float-right">
+                    <button type="button" class="btn btn-primary btn-next" data-dismiss="modal" aria-label="Close" langkey="index9" id="home_button">Próximo
+                    </button>
+                </div>
+            </div>
+            <!--  Logos  -->
+            <div class="container-fluid">
+                <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+                    <hr style="width: 100%; margin-top: 0px; text-align: center;">
+                    <div style="max-width: 100%">
+                        <img src="img/Place and City.png" id="logo_place" alt="Place and City">
+                        <img src="img/camara.jpeg" id="logo_camara" alt="Camara Municipal">
+                        <img src="img/geoc.png" id="logo_geoc" alt="Geo-c">
+                        <img src="img/mariecurie.png" id="logo_marie" alt="Marie Curie">
+                    </div>
+                    <div style="max-width: 100%; text-align: center;">
+                        <img src="img/nova.png" id="logo_nova" alt="Nova IMS">
+                        <img src="img/munster.png" id="logo_munster" alt="Münster">
+                        <img src="img/uji.png" id="logo_uji" alt="UJI">
+                    </div>
+                </div>
+            </div>
+        </div> <!--/.modal-content -->
+    </div> <!--/.modal-dialog -->
+</div> <!--/.modal fade -->
+<!-- ------------------------------- End Modal 9 ------------------------------------------------------------------------- -->
+
+<!-- ------------------------------- Modal 10 Select Freguesia  ---------------------------------------------------------- -->
+<div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     style="overflow-y: auto;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b langkey="index10">Por favor selecione a sua freguesia de residência</b>
+            </div>
+            <div class="modal-body">
+                <ul class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="list-style:none; margin-bottom: 0px">
+                    <li class="radio" style="margin-top: 0px;">
+                        <label>
+                            <input type="radio" name="freguesia" value="1"> Ajuda
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="2"> Alcântara
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="3"> Alvalade
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="4"> Areeiro
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="5"> Arroios
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="6"> Avenidas Novas
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="7"> Beato
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="8"> Belém
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="9"> Benfica
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="10"> Campo de Ourique
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="11"> Campolide
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="12"> Carnide
+                        </label>
+                    </li>
+                </ul>
+                <ul class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="list-style:none; padding-top: 0px">
+                    <li class="radio" style="margin-top: 0px;">
+                        <label>
+                            <input type="radio" name="freguesia" value="13"> Estrela
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="14"> Lumiar
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="15"> Marvila
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="16"> Misericórdia
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="17"> Olivais
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="18"> Parque das Nações
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="19"> Penha de França
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="20"> Santa Clara
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="21"> Santa Maria Maior
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="22"> Santo António
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="23"> São Domingos de Benfica
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" name="freguesia" value="24"> São Vicente
+                        </label>
+                    </li>
+                    <li class="radio" style="margin-top: 20px">
+                        <label>
+                            <input type="radio" name="freguesia" value="25"><span langkey="index12"> Nenhuma das anteriores </span>
+                        </label>
+                    </li>
+                </ul>
+            </div> <!--/.modal-body -->
+            <div class="modal-footer" style="border:none;">
+                <div class="float-left" style="color: #A9A9A9; padding-top: 8px">
+                    2/4
+                </div>
+                <div class="float-right">
+                    <button type="button" class="btn btn-primary btn-next" data-dismiss="modal" aria-label="Close"
+                            href="#" langkey="index9" id="freguesia_button" disabled>Próximo
+                    </button>
+                </div>
+                <div class="float-right" style="padding-top: 8px; margin-right: 20px">
+                    <a type="button" id="freguesia_button_prev" class="link-primary btn-prev"
+                       langkey="index11">Anterior</a>
+                </div>
+            </div>
+        </div> <!--/.modal-content -->
+    </div> <!--/.modal-dialog -->
+</div> <!--/.modal fade -->
+<!-- ------------------------------- End Modal 10 ------------------------------------------------------------------------ -->
+
+
+<!-- ------------------------------- Modal 11 How long have you lived there?  ------------------------------------------------------ -->
+<div class="modal fade" id="myModal11" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p style="text-align: center; margin-top: 40px; font-weight: bold" langkey="index13">
+                  Há quanto tempo reside aí?
+                </p>
+                <div style="text-align: center">
+                  <label class="radio-inline">
+                    <input type="radio" name="howlong" value="1" checked="checked"> <span langkey="index14"> Menos de 1 ano</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="howlong" value="2"> <span langkey="index15"> 1 a 3 anos</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="howlong" value="3"> <span langkey="index16"> 3 a 6 anos</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="howlong" value="4"> <span langkey="index17"> Mais do que 6 anos </span>
+                  </label>
+                </div>
+                <p style="text-align: center; margin-top: 40px; font-weight: bold" langkey="index18"> Indique por favor o código postal da sua residência
+                </p>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-3">
+                  <input class="form-control" style="text-align: center" rows="1" id="zip"  placeholder="1100-100"></input>
+                </div>
+                <div class="no-float"></div>
+                <div class="checkbox col-xs-6 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-3">
+                  <label style="font-size: 12px">
+                    <input type="checkbox" name="no_zip" value="1">
+                    <span langkey="index19"> Se não desejar indicar o seu código postal, selecione por favor na caixa</span>
+                  </label>
+                </div>
+            </div> <!--/.modal-body -->
+            <div class="no-float"></div>
+            <div class="modal-footer" style="border:none;">
+                <div class="float-left" style="color: #A9A9A9; padding-top: 8px">
+                  3/4
+                </div>
+                <div class="float-right">
+                  <button type="button" class="btn btn-primary btn-next"  aria-label="Close" id="how_long" langkey="index9">Próximo</button>
+                </div>
+                <div class="float-right" style="padding-top: 8px; margin-right: 20px">
+                  <a type="button" class="link-primary btn-prev" id="how_long_pre" langkey="index11">Anterior</a>
+                </div>
+            </div>
+        </div> <!--/.modal-content -->
+    </div> <!--/.modal-dialog -->
+</div> <!--/.modal fade -->
+<!-- ------------------------------- End Modal 11 --------------------------------------------------------------------------- -->
+
+
+<!-- ------------------------------- Modal A How long have you lived there? - out Lisbon  --------------------------------------------------------- -->
+<div class="modal fade" id="myModalA" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p style="text-align: center; margin-top: 30px; font-weight: bold" langkey="index4a">
+                    Reside em Portugal?
+                </p>
+                <div style="text-align: center; margin-bottom: 40px">
+                    <label class="radio-inline">
+                        <input type="radio" name="portugal_home" value="true" checked="checked"> <span langkey="index5"> Sim </span>
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="portugal_home" value="false"> <span langkey="index6"> Não</span>
+                    </label>
+                </div>
+                <div class="show" id="information_home">
+                    <p style="text-align: center; margin-top: 40px; font-weight: bold" langkey="index18">Indique por favor o código postal da sua residência
+                    </p>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-3">
+                        <input class="form-control" style="text-align: center" rows="1" id="zip_no" placeholder="1100-100"></input>
+                    </div>
+                    <div class="no-float"></div>
+                    <p style="text-align: center; margin-top: 40px; font-weight: bold" langkey="index13">
+                        Há quanto tempo reside aí?
+                    </p>
+                    <div style="text-align: center">
+                        <label class="radio-inline">
+                            <input type="radio" name="howlong_no" value="1" checked="checked"> <span langkey="index14"> Menos de 1 ano</span>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="howlong_no" value="2"> <span langkey="index15"> 1 a 3 anos</span>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="howlong_no" value="3"> <span langkey="index16"> 3 a 6 anos</span>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="howlong_no" value="4"> <span langkey="index17"> Mais do que 6 anos </span>
+                        </label>
+                    </div>
+                    <div class="no-float"></div>
+                </div>
+            </div> <!--/.modal-body -->
+            <div class="modal-footer" style="border:none;">
+                <div class="float-right">
+                    <button type="button" class="btn btn-primary btn-next" aria-label="Close" id="how_long_no" langkey="index9">Próximo
+                    </button>
+                </div>
+            </div>
+        </div> <!--/.modal-content -->
+    </div> <!--/.modal-dialog -->
+</div> <!--/.modal fade -->
+<!-- ------------------------------- End Modal A --------------------------------------------------------------------------- -->
+
+
+<!-- ------------------------------- Modal 12  Problems in freguesia  -------------------------------------------------------- -->
+<div class="modal fade" id="myModal12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b langkey="index20">Selecione por favor os problemas mais importantes da sua freguesia (máximo 3)</b>
+            </div>
+            <div class="modal-body" id="problems" style="margin-left: 20px">
+                <!--  ------------- Column 1 ------------ -->
+                <ul class="media-list col-lg-6 col-md-6 col-sm-6 col-xs-12" style="list-style:none;  padding: 0px;">
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="1">
+                            <span langkey="index21">Estado do pavimento das ruas</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="2">
+                            <span langkey="index22">Estacionamento</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="3">
+                            <span langkey="index23">Acessibilidade</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="4">
+                            <span langkey="index24">Higiene urbana</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="5">
+                            <span langkey="index25">Ruído</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="6">
+                            <span langkey="index26">Renovação urbana</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="7">
+                            <span langkey="index27">Transportes públicos</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="8">
+                            <span langkey="index28">Litter</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="9">
+                            <span langkey="index29">Segurança</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="10">
+                            <span langkey="index30">Construção</p>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="11">
+                            <span langkey="index31">Trânsito</p>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="12">
+                            <span langkey="index33">Manutenção urbana</p>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="13">
+                            <span langkey="index34"></span>
+                        </label>
+                    </li>
+                </ul>
+                <!--  ------------- Column 2 ------------ -->
+                <ul class="media-list col-lg-6 col-md-6 col-sm-6 col-xs-12" style="list-style:none; padding: 0px;">
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="14">
+                            <span langkey="index35">Segurança</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="15">
+                            <span langkey="index36">Construção</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="16">
+                            <span langkey="index37">Trânsito</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="17">
+                            <span langkey="index38">Manutenção urbana</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="18">
+                            <span langkey="index39">Manutenção urbana</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="19">
+                            <span langkey="index40">Transportes públicos</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="20">
+                            <span langkey="index41">Segurança</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="21">
+                            <span langkey="index42">Construção</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="22">
+                            <span langkey="index43">Trânsito</p>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="23">
+                            <span langkey="index44">Manutenção urbana</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="24">
+                            <span langkey="index45">Manutenção urbana</p>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="25">
+                            <span langkey="index46">Manutenção urbana</span>
+                        </label>
+                    </li>
+                    <li class="media">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" name="problem" value="26">
+                            <span langkey="index47">Manutenção urbana</span>
+                        </label>
+                    </li>
+                </ul>
+            </div> <!--/.modal-body -->
+            <div class="no-float"></div>
+            <div class="modal-footer" style="border:none;">
+                <div class="float-left" style="color: #A9A9A9; padding-top: 8px">
+                    4/4
+                </div>
+                <div class="float-right">
+                    <a type="button" class="btn btn-primary" id="done1"><span langkey="index9">Terminado</span></a>
+                </div>
+                <div class="float-right" style="padding-top: 8px; margin-right: 20px">
+                    <a type="button" class="link-primary btn-prev" id="done1_pre" href="#" lankey="index11"><span langkey="index11">Anterior</span></a>
+                </div>
+            </div>
+        </div> <!--/.modal-content -->
+    </div> <!--/.modal-dialog -->
+</div> <!--/.modal fade -->
+<!-- ------------------------------- End Modal 12 ---------------------------------------------------------------------------- -->
+
+
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/leaflet.js"></script>
+<script src="js/leaflet-src.js"></script>
+<script src="js/leaflet.draw.js"></script>
+<script src="js/functions_index.js"></script>
+
+<script src="src/edit/handler/Edit.Poly.js"></script>
+<script src="src/edit/handler/Edit.SimpleShape.js"></script>
+<script src="src/edit/handler/Edit.Circle.js"></script>
+<script src="src/edit/handler/Edit.Rectangle.js"></script>
+
+<script src="src/draw/handler/Draw.Feature.js"></script>
+<script src="src/draw/handler/Draw.Polyline.js"></script>
+<script src="src/draw/handler/Draw.Polygon.js"></script>
+<script src="src/draw/handler/Draw.SimpleShape.js"></script>
+<script src="src/draw/handler/Draw.Rectangle.js"></script>
+<script src="src/draw/handler/Draw.Circle.js"></script>
+<script src="src/draw/handler/Draw.Marker.js"></script>
+
+<script src="src/ext/TouchEvents.js"></script>
+<script src="src/ext/LatLngUtil.js"></script>
+<script src="src/ext/GeometryUtil.js"></script>
+<script src="src/ext/LineUtil.Intersect.js"></script>
+<script src="src/ext/Polyline.Intersect.js"></script>
+<script src="src/ext/Polygon.Intersect.js"></script>
+
+<script src="src/Control.Draw.js"></script>
+<script src="src/Tooltip.js"></script>
+<script src="src/Toolbar.js"></script>
+
+<script src="src/draw/DrawToolbar.js"></script>
+<script src="src/edit/EditToolbar.js"></script>
+<script src="src/edit/handler/EditToolbar.Edit.js"></script>
+<script src="src/edit/handler/EditToolbar.Delete.js"></script>
+
+<script src="js/API/lib.js"></script>
+
+<script src="data/zipCodes.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+
+<!--<script src="js/API/util.js"></script>
+<script src="js/API/constants.js"></script>
+<script src="js/API/coreapi.js"></script>
+<script src="js/API/app.js"></script d >-->
+
+
+<script>
+
+    $(document).ready(function () {
+
+			firebase.initializeApp({
+				apiKey: "AIzaSyBwgs-qsN_KmDtp2VeI6dhSoylkzJaexcM",
+				authDomain: "experiment-9e514.firebaseapp.com",
+				projectId: "experiment-9e514"
+			});
+			db = firebase.firestore();
+
+        startall();
+
+    });
+
+
+</script>
+
+
+<script>
+
+    // LEAFLET MAP + DRAW
+
+    // create a map in the "map" div, set the view to a given place and zoom
+    var map = L.map('map').setView([38.7500, -9.1500], 12);
+    // add an OpenStreetMap tile layer
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    // Customize button draw polygon - personal contribution
+    var polygonDrawer = new L.Draw.Polyline(map);
+
+    // Initialise the FeatureGroup to store editable layers
+    var drawnItems = new L.FeatureGroup();
+    map.addLayer(drawnItems);
+
+    // Initialise the draw control and pass it the FeatureGroup of editable layers
+    var drawControl = new L.Control.Draw({
+        //position: 'topright',
+        draw: {
+            polyline: false,
+            polygon: false,
+            rectangle: false,
+            circle: false,
+            marker: false
+        },
+        edit: {
+            featureGroup: drawnItems,
+            // Customize button delete polygon - personal contribution
+            remove: false,
+            // Edit polygon when you draw it - personal contribution
+            edit: false
+        }
+    });
+
+    map.addControl(drawControl);
+
+    map.on('draw:created', function (e) {
+        var type = e.layerType,
+            layer = e.layer;
+
+        if (type === 'marker') {
+            layer.bindPopup('A popup!');
+        }
+        // Edit polygon when you draw it - personal contribution
+        e.layer.editing.enable();
+
+        drawnItems.addLayer(layer);
+
+    });
+
+    map.on('draw:edited', function (e) {
+        var layers = e.layers;
+        var countOfEditedLayers = 0;
+        layers.eachLayer(function (layer) {
+            countOfEditedLayers++;
+        });
+        console.log("Edited " + countOfEditedLayers + " layers");
+    });
+
+    // Customize button draw polygon - personal contribution
+    function drawPolygon() {
+        var polygonDrawer = new L.Draw.Polygon(map, drawControl);
+        polygonDrawer.enable();
+    }
+    // Customize button draw polygon - personal contribution
+    $('#draw_poly').on('click', function () {
+        drawControl.enable();
+    });
+
+    // Customize button delete polygon - personal contribution
+    $('#delete_poly').on('click', function () {
+        drawnItems.clearLayers();
+    });
+
+</script>
+
+</body>
+</html>
