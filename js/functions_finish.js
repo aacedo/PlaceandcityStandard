@@ -5,6 +5,9 @@ var profession_new;
 
 function startAll(){
 
+    //$("#finishBtn").removeClass().addClass("show");
+
+
     $('#profession').change(function () {
         if ($("#profession").val() == "6") {
             $("#other_profession").removeClass().addClass("show");
@@ -76,10 +79,11 @@ function startOthers() {
                             alert(translator.getKeyLanguageValue("general1"));
                         }
                         else {
-                            util.redirectToPage({
+                            alert(translator.getKeyLanguageValue("general159"));
+                            /*util.redirectToPage({
                                 url: "globalEnd.html",
                                 payload: {id:response.id}
-                            });
+                            });*/
                         }
                     })
                 }
@@ -106,13 +110,18 @@ function startOthers() {
                         alert(translator.getKeyLanguageValue("general1"));
                     }
                     else {
-                        util.redirectToPage({
+                        alert(translator.getKeyLanguageValue("general159"));
+                       /* util.redirectToPage({
                             url: "globalEnd.html",
                             payload: {id:response.id}
-                        });
+                        });*/
                     }
                 })
             }
+
+
+        $("#finishBtn").removeClass().addClass("hidden");
+
 
 
         });

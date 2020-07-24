@@ -1,6 +1,6 @@
 {
-  "index1": "Queridos amigos, ante todo, quiero agradeceros todas las fotos y textos que habéis aportado. Este es el último paso(lo prometo 🤗 ). El siguiente cuestionario es la segunda parte de investigación y responderlo, vuestra última contribución al experimento: la escalera de pertenecia. ",
-  "index2": "Responder el cuestionario se tarda menos de 5 minutos y la actividad de dibujo le lleva a la mayoría de la gente unos 10 minutos, dependiendo del número de áreas a definir.",
+  "index1": "Queridos amigos, ante todo, quiero agradeceros todas las fotos y textos que habéis aportado. Este es el último paso (lo prometo 🤗). El siguiente cuestionario es la segunda parte de la investigación y vuestra última contribución al experimento.. ",
+  "index2": "En responder el cuestionario se tarda menos de 5 minutos y la actividad de dibujo le lleva a la mayoría de la gente unos 10 minutos, dependiendo del número de áreas a definir.",
   "index2a": "Las respuestas ",
   "index2b": " nº 200, nº 500 y nº 1000 serán premiadas con un vale regalo de 50,00€. Para poder disfrutar el vale debe darnos su mail en el campo disponible al final de la encuesta.",
   "index3": "Con tu contribución, vamos a mejorar los procesos participativos de Lisboa.",
@@ -13,7 +13,7 @@
   "index6": "No",
   "index7": "Notas:",
   "index8": "1. Todos los datos recolectados son tratados con confidencialidad y anonimato, además no serán usados con fines comerciales o distribuidos a terceros.",
-  "index8a": "2. Para obtener más información o dudas acerca del estudio, puedes contactar con nosotros usando el mail acedo@novaims.unl.pt (Albert Acedo Sánchez).",
+  "index8a": "2. Para obtener más información o dudas acerca del estudio, puedes contactar con nosotros usando el mail albert.acedo@tecnico.ulisboa.pt (Albert Acedo).",
   "index9": "Siguiente",
   "index10": "Por favor, seleccione el barrio donde vive",
   "index11": "Prev",
@@ -125,11 +125,11 @@
 
 
   "map1-95":"Por favor",
-  "map1-96":"Piensa en una palabra que defina una de esas áreas",
-  "map1-97":"Escribe la palabra en el recuadro de abajo",
+  "map1-96":"Piensa en una o más palabra que defina una de esas áreas",
+  "map1-97":"Escribe el texto en el recuadro de abajo",
   "map1-98":"Clica en el botón ",
-  "map1-99":"Puedes añadir tantas palabras como áreas tengas. Cuando acabes de introducirlas, clica el botón ",
-  "map1-100":"Añade otra palabra que defina otra área",
+  "map1-99":"Puedes añadir tantos textos como áreas tengas. Cuando acabes de introducirlas, clica el botón ",
+  "map1-100":"Añade otro texto que defina otra área",
 
 
   "map1-101":"Experiencia personal (memorias, significados, actitudes, etc.)",
@@ -206,11 +206,11 @@
 
 
   "map2-95":"Por favor:",
-  "map2-96":"Piensa en una palabra que defina una de esos grupos",
-  "map2-97":"Escribe la palabra en el recuadro de abajo",
+  "map2-96":"Piensa en una o más palabra que definan una de esos grupos",
+  "map2-97":"Escribe el texto en el recuadro de abajo",
   "map2-98":"Clica en el botón ",
-  "map2-99":"Puedes añadir tantas palabras como grupos tengas. Cuando acabes de introducirlos, clica el botón",
-  "map2-100":"Añade otra palabra que defina otro grupo",
+  "map2-99":"Puedes añadir tantos textos como grupos tengas. Cuando acabes de introducirlos, clica el botón",
+  "map2-100":"Añade otro texto que defina otro grupo",
 
 
 
@@ -297,8 +297,8 @@
   "general13":"Gracias",
   "general14":"Introduzca una dirección de mail y/o un nombre de usuario válido.",
   "general15":"Por favor, selecciona un grupo.",
-  "general16":"Añadir palabra",
-  "general17":"Añadir palabra",
+  "general16":"Añadir texto",
+  "general17":"Añadir texto",
   "general18":"Área",
   "general19":"Grupo",
   "general20":"o",
@@ -314,9 +314,10 @@
 
 
   "general150": "¿Quieres participar en los próximos procesos participativos de tu ciudad?",
-  "general151": "¿Quieres participar en los próximos procesos participativos de tu ciudad?",
+  "general151": "Observaciones",
   "general152": "Por favor, introduce tu nombre completo",
   "general153": "Por favor, escribe el nombre de la ciudad/pueblo donde vives",
-  "general154": "Por favor, añade el nombre de la ciudad/pueblo"
+  "general154": "Por favor, añade el nombre de la ciudad/pueblo",
+  "general159": "Muchas gracias por tu ayuda! Ya hemos acabado ;)"
 
 }

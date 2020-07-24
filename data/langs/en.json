@@ -1,7 +1,8 @@
 {
-  "index1": " nvksdfvj sd hds fsf",
-  "index2": "triytofsdfkknj d questionnaire will take less than 5 minutes, and the mapping activity takes most people around 10 minutes, depending on how many areas you define.",
-  "index444": "The questionnaire will take less than 5 minutes, and the mapping activity takes most people around 10 minutes, depending on how many areas you define.",
+
+
+  "index1": "Dear friends, first of all, I want to thank you for all the photos and texts that you have provided. This is the last step (I promise 🤗). The following questionnaire is the second part of the investigation and your last contribution to the experiment.",
+  "index2": "The questionnaire will take less than 5 minutes, and the mapping activity takes most people around 10 minutes, depending on how many areas you define.",
   "index2a": "Answers ",
   "index2b": " nº 200, nº 500 and nº 1000, will be provided with a gift card of 50,00€. If you want to be eligible for a prize, you should provide your email at the end of the survey, so we can contact you in case you won.",
   "index3": "With your contribution, you will support the improvement of Lisbon municipality participation processes.",
@@ -14,7 +15,7 @@
   "index6": "No",
   "index7": "Notes:",
   "index8": "1. All data collected is treated with confidentiality and anonymity, and will not be used for commercial purposes or distributed to third parties.",
-  "index8a":"2. For more information or questions about this study, please contact us using the following email address acedo@novaims.unl.pt (Albert Acedo Sánchez).",
+  "index8a":"2. For more information or questions about this study, please contact us using the following email address albert.acedo@tecnico.ulisboa.pt (Albert Acedo).",
   "index9": "Next",
   "index10": "Please, select the parish where you live",
   "index11": "Prev",
@@ -79,7 +80,7 @@
   "map1-17":"you can go directly to a certain freguesia using the button ",
   "map1-17a":"'Parishes' ",
   "map1-18":"Area hola",
-  "map1-19":"Do you live in that area?",
+  "map1-19":"Do you live within that area?",
   "map1-20":"Please rate the area hola:",
   "map1-21":"Sociability (neighborly, friendly, interactive, welcoming, etc.)",
   "map1-22":"Uses & Activities (fun, active, vital, useful. etc.)",
@@ -122,14 +123,12 @@
   "map1-84":"To finish drawing an area, click on the first point again or doble-click in the last point defined of the area",
   "map1-85":"* You can exit the drawing activity by pressing the 'escape' key on your keyboard",
 
-
-
   "map1-95":"Please",
-  "map1-96":"Think about a word that define one of these areas",
-  "map1-97":"Write the word in the form below",
+  "map1-96":"Think about a word or sentence that define one of these areas",
+  "map1-97":"Write the text in the form below",
   "map1-98":"Click on button ",
   "map1-99":"You can add as many areas as you want. When you finish to add them, click on button ",
-  "map1-100":"Add another word that define another area",
+  "map1-100":"Add another text that define another area",
 
   "map1-101":"Personal Experience (memories, meanings, attitudes, etc.)",
   "map1-102":"Socio-cultural (friends, cultura, shops, religious aspects, study areas, etc.)",
@@ -174,7 +173,7 @@
   "map2-30a":"draw another area that defines the group X clicking the button",
   "map2-31":"to define the next group or to go to the next activity clicking the button ",
   "map2-32a":"You have already defined: L area/s.",
-  "map2-32":"Do you live in that area?",
+  "map2-32":"Do you live within that area?",
   "map2-33":"Please, answer the following questions about the area just drawn.",
   "map2-34":"The people I interact in that group would put their reputation on the line for me.",
   "map2-35":"I know people in that group well enough to get them to do anything important.",
@@ -205,11 +204,11 @@
 
 
   "map2-95":"Please:",
-  "map2-96":"Think about a word that defines one of these groups",
-  "map2-97":"Write the word in the form below",
+  "map2-96":"Think about a word or sentence that defines one of these groups",
+  "map2-97":"Write the text in the form below",
   "map2-98":"Click on button",
   "map2-99":"You can add as many groups as you want. After you finished adding them, click on button ",
-  "map2-100":"Add another word that define another group",
+  "map2-100":"Add another text that define another group",
 
 
 
@@ -301,8 +300,8 @@
   "general13":"Thanks",
   "general14":"Please, insert an email and/or a valid twitter user name",
   "general15":"Please, select one group.",
-  "general16":"Add word",
-  "general17":"Add word",
+  "general16":"Add text",
+  "general17":"Add text",
   "general18":"Area",
   "general19":"Group",
   "general20":"or",
@@ -318,8 +317,10 @@
   "general122": "Click on the first point to close the area.",
 
   "general150": "Would you like to participate in next participatory processes in your city?",
-  "general151": "¿Quieres participar en los próximos procesos participativos de tu ciudad?",
+  "general151": "Observations",
   "general152": "Please, write your complete name",
   "general153": "Please, write the name of the city/town where you live",
-  "general154": "Please, add the name of the city/town"
+  "general154": "Please, add the name of the city/town",
+  "general159": "Thanks a lot for your help! We have finished ;)"
+
 }

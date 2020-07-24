@@ -185,7 +185,7 @@ function startAll() {
                             }
                             else {
                                 util.redirectToPage({
-                                    url: "map3.html",
+                                    url: "finish.html",
                                     payload: {id:response.id, center: mapCenter}
                                 });
                             }
@@ -284,7 +284,8 @@ function startAll() {
                 bosc1: parseInt($("input[name=bosc1]:checked").val()),
                 bosc2: parseInt($("input[name=bosc2]:checked").val()),
                 brsc1: parseInt($("input[name=brsc1]:checked").val()),
-                brsc2: parseInt($("input[name=brsc2]:checked").val())
+                brsc2: parseInt($("input[name=brsc2]:checked").val()),
+            observationssc: ($('#observationssc').val())
             }
         };
 
@@ -292,6 +293,8 @@ function startAll() {
         $("input[name=bosc2]").prop('checked', false);
         $("input[name=brsc1]").prop('checked', false);
         $("input[name=brsc2]").prop('checked', false);
+        $("#observationssc").val("");
+
 
 
         currGroup.areas.push(polygonData);
@@ -493,7 +496,7 @@ function startAll() {
             }
             else {
                 util.redirectToPage({
-                    url: "map3.html",
+                    url: "finish.html",
                     payload: {id:response.id, center: mapCenter}
                 });
             }

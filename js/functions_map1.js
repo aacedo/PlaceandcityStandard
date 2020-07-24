@@ -234,7 +234,8 @@ function startAll() {
                     na1: parseInt($("input[name=na1]:checked").val()),
                     na2: parseInt($("input[name=na2]:checked").val()),
                     na3: parseInt($("input[name=na3]:checked").val()),
-                    na4: parseInt($("input[name=na4]:checked").val())
+                    na4: parseInt($("input[name=na4]:checked").val()),
+                observationssop: ($('#observationssop').val())
                 }
             };
 
@@ -270,6 +271,8 @@ function startAll() {
             $("input[name=na2]").prop('checked', false);
             $("input[name=na3]").prop('checked', false);
             $("input[name=na4]").prop('checked', false);
+            $("#observationssop").val("");
+
 
 
         }
