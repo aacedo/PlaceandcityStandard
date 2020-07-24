@@ -1,5 +1,5 @@
 {
-  "index1": "LOLOLOLO KKKKK Queridos compañeros, ante todo, quiero agradeceros todas las respuestas que habéis ido dando a los cuestionarios proporcionados. Este es el último (lo prometo 🤗 ). El siguiente cuestionario es parte de mi investigación y responderlo, vuestra última contribución al experimento: la escalera de pertenecia. ",
+  "index1": "Queridos amigos, ante todo, quiero agradeceros todas las fotos y textos que habéis aportado. Este es el último paso(lo prometo 🤗 ). El siguiente cuestionario es la segunda parte de investigación y responderlo, vuestra última contribución al experimento: la escalera de pertenecia. ",
   "index2": "Responder el cuestionario se tarda menos de 5 minutos y la actividad de dibujo le lleva a la mayoría de la gente unos 10 minutos, dependiendo del número de áreas a definir.",
   "index2a": "Las respuestas ",
   "index2b": " nº 200, nº 500 y nº 1000 serán premiadas con un vale regalo de 50,00€. Para poder disfrutar el vale debe darnos su mail en el campo disponible al final de la encuesta.",
@@ -7,7 +7,7 @@
   "index3a": "Por favor, haga el cuestionario en un ",
   "index3b": "ordenador portátil o de escritorio ",
   "index3c": "ya que algunas funcionalidades no se muestran correctamente en móviles o similares",
-  "index4": "¿Vives en Lisboa?",
+  "index4": "¿Cuál es tu nombre completo?",
   "index4a": "¿Vives en Portugal?",
   "index5": "Si",
   "index6": "No",
@@ -21,8 +21,8 @@
   "index13": "¿Cuánto hace que vives ahí? ",
   "index14": "Menos de 1 año",
   "index15": "1-3 años",
-  "index16": "3-6 años",
-  "index17": "más de 6 años",
+  "index16": "4-7 años",
+  "index17": "más de 7 años",
   "index18": "Indica por favor el código postal donde se encuentra su casa",
   "index19": "Si no quieres dar tu código postal, por favor marca el cuadro.",
   "index20": "Por favor selecciona los temas menos positivos de tu barrio (máximo 3) si es necesario",
@@ -313,9 +313,10 @@
   "general122": "Clique en el primer punto para cerrar el área.",
 
 
-  "general150": "¿Quieres participar en los próximos procesos participativos de tu ciudad?"
-
-
-
+  "general150": "¿Quieres participar en los próximos procesos participativos de tu ciudad?",
+  "general151": "¿Quieres participar en los próximos procesos participativos de tu ciudad?",
+  "general152": "Por favor, introduce tu nombre completo",
+  "general153": "Por favor, escribe el nombre de la ciudad/pueblo donde vives",
+  "general154": "Por favor, añade el nombre de la ciudad/pueblo"
 
 }

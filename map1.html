@@ -62,11 +62,11 @@
           <div class="visible-lg visible-md visible-sm" style="position: absolute; top: 10px; left: 55px; z-index: 999">
             <div class="col-lg-12 col-md-12 col-sm-12 width-buttons-map">
               <span class="dropdown" style="margin-right: 5px;">
-                <button class="btn btn-default dropdown-toggle" type="button" id="button-freguesia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom: 5px">
+                <!--<button class="btn btn-default dropdown-toggle" type="button" id="button-freguesia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-bottom: 5px">
                     <i class="fa fa-institution" aria-hidden="true"></i>
                     <span langkey="map1-3">Freguesias</span>
                     <span class="caret"></span>
-                </button>
+                </button>-->
                 <div class="dropdown-menu" style="min-width: 250px; margin: 12px 0 0">
                   <ul class="dropdown-map col-lg-6 col-md-6 col-sm-6 col-xs-6" aria-labelledby="dropdown-freguesias">
                     <li><a href="#" id="d-ajuda">Ajuda</a></li>
@@ -943,32 +943,30 @@
 
             //startMapComponents();
 
-            // $.ajax({
-            //     url: 'http://ip-api.com/json',
-            //     dataType: "json",
-            //     cache:true,
-            //     method:'GET',
-            //     success:function (response) {
-            //         doIPCentering(response);
-            //     }.bind(this),
-            //     error:function (response) {
-            //         doDefaultCentering();
-            //         return false;
-            //     }.bind(this)
-            // });
-
-            doDefaultCentering();
+            $.ajax({
+              url: 'https://geoip-db.com/json/',
+              dataType: "json",
+              cache: true,
+              method: 'GET',
+              success: function (response) {
+                doIPCentering(response);
+              }.bind(this),
+              error: function (response) {
+                doDefaultCentering();
+                return false;
+              }.bind(this)
+            });
 
             function doDefaultCentering() {
-                mapCenter = [38.7500, -9.1500];
-                startAll();
+              mapCenter = [38.7500, -9.1500];
+              startAll();
             }
 
             function doIPCentering(data) {
-                if (data && data.lat && data.lon)
-                    mapCenter = [data.lat, data.lon];
-                startAll();
-            }
+              if (data && data.latitude && data.longitude)
+                mapCenter = [data.latitude, data.longitude];
+              startAll();
+              }
         });
     </script>
 

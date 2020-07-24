@@ -51,19 +51,31 @@ function startall() {
     $('#home_button').click(function () {
 
 
-        if ($('input[name=lisbon_home]:checked').val() == "true") {
+
+        if (!$("#nameuser").val()) {
+            alert(translator.getKeyLanguageValue("general152"));
+        }
+        else {
+            $('#myModalA').modal({backdrop: 'static', keyboard: false});
+            $('#myModal9').modal('hide');
+
+
+        }
+
+
+        /*if ($('input[name=lisbon_home]:checked').val() == "true") {
             $('#myModal10').modal({backdrop: 'static', keyboard: false});
         }
         else {
             $('#myModalA').modal({backdrop: 'static', keyboard: false});
 
 
-        }
+        }*/
 
 
     });
     
-    $("input[name='portugal_home']").change(function () {
+    /*$("input[name='portugal_home']").change(function () {
 
         if ($('input[name=portugal_home]:checked').val() == "false") {
             $("#information_home").removeClass().addClass("hidden");
@@ -86,10 +98,10 @@ function startall() {
         else{
             $('#myModal11').modal({backdrop: 'static', keyboard: false});
         }
-    });
+    });*/
 
 
-    $('#how_long').click(function () {
+   /* $('#how_long').click(function () {
         var zip = $('#zip').val();
 
         var zipRegex = /(^\d{4}-\d{3}$)/;
@@ -117,13 +129,47 @@ function startall() {
                 alert(translator.getKeyLanguageValue("general3"));
             }
         }
-    });
+    });*/
 
 
 
     $('#how_long_no').click(function () {
 
 
+        if (!$("#city").val()) {
+            alert(translator.getKeyLanguageValue("general154"));
+        }
+        else {
+            var username = $('#nameuser').val();
+            var city = $('#city').val();
+            //var home = ($("input[name=lisbon_home]:checked").val()) === 'false';
+            //var portugal = ($("input[name=portugal_home]:checked").val());
+            var howlong = parseInt($("input[name=howlong_no]:checked").val());
+            //var zip = $("#zip_no").val();
+            var experiment = getParameterByName('exp');
+
+            var data = {
+                username: username,
+                city: city,
+                howlong: howlong,
+                //zip: zip,
+                experiment: experiment
+            };
+            app.setHome(data, function (response) {
+                if (response === false) {
+                    // alert("There is a connection problem; please, try again later");
+                    alert(translator.getKeyLanguageValue("general1"));
+                }
+                else {
+                    util.redirectToPage({
+                        url: "map1.html",
+                        payload: {id:response.id}
+                    });
+                }
+            });
+        }
+
+/*
         if ($('input[name=portugal_home]:checked').val() == "true") {
             var zip_no = $('#zip_no').val();
 
@@ -179,7 +225,7 @@ function startall() {
                 }
             });
 
-        }
+        }*/
     });
 
 
@@ -197,7 +243,8 @@ function startall() {
     // preapare data to send
 
     $('#done1').click(function () {
-        var home = ($("input[name=lisbon_home]:checked").val()) === 'true';
+        //var home = ($("input[name=lisbon_home]:checked").val()) === 'true';
+        var nameuser;
         var freguesia = parseInt($("input[name=freguesia]:checked").val());
         var howlong = parseInt($("input[name=howlong]:checked").val());
         var zip = $("#zip").val();
@@ -207,7 +254,7 @@ function startall() {
         });
         var experiment = getParameterByName('exp');
         var data = {
-            home: home,
+            //home: home,
             freguesia: freguesia,
             howlong: howlong,
             zip: zip,

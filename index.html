@@ -35,9 +35,9 @@
                     <input type="radio" name="language" value="en" checked>
                     <img src="img/flags/24/United Kingdom(Great Britain).png" style="margin-left: 5px">
                     <br>
-                    <input type="radio" name="language" value="pt">
+                    <!--<input type="radio" name="language" value="pt">
                     <img src="img/flags/24/Portugal.png" style="margin-left: 5px">
-                    <br>
+                    <br>-->
                     <input type="radio" name="language" value="es">
                     <img src="img/flags/24/Spain.png" style="margin-left: 5px">
                     <br>
@@ -64,14 +64,12 @@
                 <p style="text-align: center; margin-top: 30px; font-weight: bold" langkey="index4">
                     Reside em Lisboa?
                 </p>
-                <div style="text-align: center; margin-bottom: 40px">
-                    <label class="radio-inline">
-                        <input type="radio" name="lisbon_home" value="true" checked="checked"> <span langkey="index5"> Sim </span>
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="lisbon_home"  value="false"> <span langkey="index6"> Não</span>
-                    </label>
+                <!-- ----------------------------------  NEW  --------------------------- -->
+                <div  style="margin-bottom: 20px;">
+                    <textarea rows="1" class="col-xs-6 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-3" id="nameuser"></textarea>
                 </div>
+                <!-- ----------------------------------  End NEW  --------------------------- -->
+                <div class="no-float"></div>
                 <p style="font-size: 12px">
                     <span langkey="index7 "> Notas:</span>
                     <br>
@@ -86,7 +84,7 @@
                     1/4
                 </div>
                 <div class="float-right">
-                    <button type="button" class="btn btn-primary btn-next" data-dismiss="modal" aria-label="Close" langkey="index9" id="home_button">Próximo
+                    <button type="button" class="btn btn-primary btn-next"  aria-label="Close" langkey="index9" id="home_button">Próximo
                     </button>
                 </div>
             </div>
@@ -329,7 +327,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <p style="text-align: center; margin-top: 30px; font-weight: bold" langkey="index4a">
+                <!--<p style="text-align: center; margin-top: 30px; font-weight: bold" langkey="index4a">
                     Reside em Portugal?
                 </p>
                 <div style="text-align: center; margin-bottom: 40px">
@@ -339,12 +337,12 @@
                     <label class="radio-inline">
                         <input type="radio" name="portugal_home" value="false"> <span langkey="index6"> Não</span>
                     </label>
-                </div>
+                </div>-->
                 <div class="show" id="information_home">
-                    <p style="text-align: center; margin-top: 40px; font-weight: bold" langkey="index18">Indique por favor o código postal da sua residência
+                    <p style="text-align: center; margin-top: 40px; font-weight: bold" langkey="general153">Indique por favor o código postal da sua residência
                     </p>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-3">
-                        <input class="form-control" style="text-align: center" rows="1" id="zip_no" placeholder="1100-100"></input>
+                    <div  style="margin-bottom: 20px;">
+                        <textarea rows="1" class="col-xs-6 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-3" id="city"></textarea>
                     </div>
                     <div class="no-float"></div>
                     <p style="text-align: center; margin-top: 40px; font-weight: bold" langkey="index13">
