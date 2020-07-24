@@ -186,8 +186,10 @@ function startAll() {
                     na1: parseInt($("input[name=na1]:checked").val()),
                     na2: parseInt($("input[name=na2]:checked").val()),
                     na3: parseInt($("input[name=na3]:checked").val()),
-                    na4: parseInt($("input[name=na4]:checked").val())
+                    na4: parseInt($("input[name=na4]:checked").val()),
+                observationssop: ($('#observationssop').val())
                 }
+
             };
 
             SOP.push(polygonData);
@@ -207,6 +209,8 @@ function startAll() {
             $("#reason").val("0");
 
             $("#other_reason").val("");
+            $("#observationssop").val("");
+
 
 
         }
