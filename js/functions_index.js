@@ -270,7 +270,7 @@ function startall() {
                 util.redirectToPage({
                     url: "map1.html",
                     payload: {id:response.id}
-                });
+                }); 
             }
         });
     });
