@@ -121,7 +121,7 @@ uiCoreWS = {
  * and on   https://github.com/recurser/jquery-i18n
  */
 var translator = {
-    _languages: ['en', 'pt', 'es'],
+    _languages: ['en', 'es'],
     _currLangData: null,
 
     /**
