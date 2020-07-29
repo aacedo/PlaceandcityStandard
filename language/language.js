@@ -186,9 +186,9 @@ function languages(lang, text) {
 
     if (lang == 'es') {
         return es[text];
-    } else if (lang == 'pt') {
+    } /*else if (lang == 'pt') {
         return pt[text];
-    } else if (lang == 'de') {
+    }*/ else if (lang == 'de') {
         return de[text];
     } else if (lang == 'ca') {
         return ca[text];
