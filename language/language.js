@@ -88,7 +88,7 @@ function languages(lang, text) {
         'index29': 'Construção',
         'index30': 'Trânsito',
         'index31': 'Manutenção urbana',
-        'index32': 'Terminado'
+        'index32': 'Terminado' 
 
     };
 
