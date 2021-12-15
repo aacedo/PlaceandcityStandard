@@ -29,7 +29,7 @@
 <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body" style="text-align: justify">
                 <!--  Language -->
                 <p>
                     <input type="radio" name="language" value="en" checked>
@@ -61,14 +61,32 @@
                 <!--<p>-->
                 <!--<span langkey="index3">A sua contribuição apoia os processos participativos da cidade de Lisboa.</span>-->
                 <!--</p>-->
-                <p style="text-align: center; margin-top: 30px; font-weight: bold" langkey="index4">
-                    Reside em Lisboa?
+
+                <p langkey="index_email_justification">
+                    Antes de comenzar, necesitamos que nos proporciones tu correo electrónico UJI (alXXXXXX@uji.es) para
+                    informarte acerca del experimento y realizar el seguimiento del mismo. En ningún caso contactaremos
+                    contigo para temas ajenos al experimento.
                 </p>
-                <!-- ----------------------------------  NEW  --------------------------- -->
-                <div  style="margin-bottom: 20px;">
-                    <textarea rows="1" class="col-xs-6 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-3" id="nameuser"></textarea>
-                </div>
-                <!-- ----------------------------------  End NEW  --------------------------- -->
+
+                <p style="text-align: center; font-weight: bold; margin-top: 30px;">
+                    <span style="color: red" langkey="index_email_warn">ATENCIÓN</span>
+                    <br>
+                    <span langkey="index_email_warn_body">Si no nos proporcionas el correo electronico, no podrás participar en el experimento.</span>
+                    <br>
+                    <span langkey="index_email_request">Por favor, introduce tu correo electrónico UJI:</span>
+                    <br>
+                    <div style="margin-top: 20px; margin-bottom: 20px">
+                        <input type="email"
+                               class="col-xs-6 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-3" id="user_email">
+                    </div>
+                    <br>
+                </p>
+
+                <p style="text-align: center;">
+                    <input type="checkbox" id="email_agree">
+                    <span langkey="index_email_agree">Acepto recibir información sobre mi desarrollo personal del experimento.</span>
+                </p>
+
                 <div class="no-float"></div>
                 <p style="font-size: 12px">
                     <span langkey="index7"></span>
@@ -94,8 +112,8 @@
                     <hr style="width: 100%; margin-top: 0px; text-align: center;">
                     <div style="max-width: 100%">
                         <img src="img/Place and City.png" id="logo_place" alt="Place and City">
-                        <img src="img/MEMEX-logo.png" id="logo_camara" alt="Camara Municipal">
-                        <img src="img/itiColor.png" id="logo_geoc" alt="Geo-c">
+                        <img src="img/uji.png" id="logo_uji" alt="Logo UJI">
+                        <!--<img src="img/itiColor.png" id="logo_geoc" alt="Geo-c">-->
                         <!--<img src="img/mariecurie.png" id="logo_marie" alt="Marie Curie">-->
                     </div>
                     <!--<div style="max-width: 100%; text-align: center;">

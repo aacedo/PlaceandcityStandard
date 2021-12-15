@@ -50,29 +50,35 @@ function startall() {
 
     $('#home_button').click(function () {
 
+        const userEmail = $("#user_email").val();
+        const ujiStudentRegex = /^al\d{6}@uji.es$/;
 
-
-        if (!$("#nameuser").val()) {
-            alert(translator.getKeyLanguageValue("general152"));
-        }
-        else {
-            $('#myModalA').modal({backdrop: 'static', keyboard: false});
-            $('#myModal9').modal('hide');
-
-
+        if (!ujiStudentRegex.test(userEmail)) {
+            alert(translator.getKeyLanguageValue("alert_email"));
+            return;
         }
 
-
-        /*if ($('input[name=lisbon_home]:checked').val() == "true") {
-            $('#myModal10').modal({backdrop: 'static', keyboard: false});
+        if (!$("#email_agree").is(":checked")) {
+            alert(translator.getKeyLanguageValue("alert_email_agree"));
+            return;
         }
-        else {
-            $('#myModalA').modal({backdrop: 'static', keyboard: false});
 
-
-        }*/
-
-
+        const experiment = getParameterByName('exp');
+        const data = {
+            useremail: userEmail,
+            experiment: experiment
+        };
+        app.setHome(data, function (response) {
+            if (!response) {
+                alert(translator.getKeyLanguageValue("general1"));
+            }
+            else {
+                util.redirectToPage({
+                    url: "map2.html",
+                    payload: { id:response.id }
+                });
+            }
+        });
     });
     
     /*$("input[name='portugal_home']").change(function () {
@@ -140,7 +146,7 @@ function startall() {
             alert(translator.getKeyLanguageValue("general154"));
         }
         else {
-            var username = $('#nameuser').val();
+            var useremail = $('#user_email').val();
             var city = $('#city').val();
             //var home = ($("input[name=lisbon_home]:checked").val()) === 'false';
             //var portugal = ($("input[name=portugal_home]:checked").val());
@@ -149,7 +155,7 @@ function startall() {
             var experiment = getParameterByName('exp');
 
             var data = {
-                username: username,
+                useremail: useremail,
                 city: city,
                 howlong: howlong,
                 //zip: zip,

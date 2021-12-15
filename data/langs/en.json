@@ -9,7 +9,11 @@
   "index3a": "Please, do the survey with ",
   "index3b": "the laptop or desktop computer ",
   "index3c": ", since some functions do not work properly in smartphones and other similar devices.",
-  "index4": "What is your complete name?",
+  "index_email_justification": "Before we begin, we need your UJI email (alXXXXXX@uji.es) to inform you about the experiment and follow up it. In no case we will contact you for issues unrelated to the experiment",
+  "index_email_warn" : "WARNING",
+  "index_email_warn_body": "If you don't provide your email, you could not participate in the experiment.",
+  "index_email_request": "Please, introduce your UJI email:",
+  "index_email_agree": "I want to receive information about my progress in the experiment.",
   "index4a": "Do you live in Portugal?",
   "index5": "Yes",
   "index6": "No",
@@ -318,7 +322,8 @@
 
   "general150": "Would you like to participate in next participatory processes in your city?",
   "general151": "Observations",
-  "general152": "Please, write your complete name",
+  "alert_email": "Please, introduce a valid email.",
+  "alert_email_agree": "To do the experiment, is compulsory to receive information about it.",
   "general153": "Please, write the name of the city/town where you live",
   "general154": "Please, add the name of the city/town",
   "general159": "Thanks a lot for your help! We have finished ;)"
