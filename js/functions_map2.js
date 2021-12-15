@@ -32,8 +32,7 @@ function startAll() {
             name_groups.push($('#actual_group').val());
             $('#actual_group').val("");
             namesgroups();
-            contador=0;
-
+            contador++;
         }
 
     });
@@ -50,7 +49,6 @@ function startAll() {
             $("#continuar1").removeClass("hidden").addClass("show");
 
         }
-
     }
 
     $( "#actual_group" ).keypress(function( event ) {
@@ -69,6 +67,13 @@ function startAll() {
 
     });
 
+    $("#actual_group").keyup((event) => {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            $("#plus_group").click();
+        }
+    })
+
     $('#submit_name_group').click(function () {
         //name_groups = $('#name_actual_group').val();
         if (name_groups.length > 0) {
@@ -78,6 +83,7 @@ function startAll() {
 
             $("#group_name_nature").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
 
+            $('#myModal3').modal('show');
 
             currGroup = {
                 name: name_groups[number],

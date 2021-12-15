@@ -1076,12 +1076,12 @@
 <script>
     $(document).ready(function () {
 
-			firebase.initializeApp({
-				apiKey: "AIzaSyA1nZkQmYfpcIzkJTZ0s4nkUiNfIGolhU8",
-				authDomain: "standard-213b8.firebaseapp.com",
-				projectId: "standard-213b8"
-			});
-			db = firebase.firestore();
+        firebase.initializeApp({
+            apiKey: "AIzaSyA1nZkQmYfpcIzkJTZ0s4nkUiNfIGolhU8",
+            authDomain: "standard-213b8.firebaseapp.com",
+            projectId: "standard-213b8"
+        });
+        db = firebase.firestore();
 
         var savedStrData = util.getFromLocalStorage(util.interPageDataKey);
         if (savedStrData) {
@@ -1094,8 +1094,33 @@
         else{
             window.location.href = "index.html";
         }
-        //startMapComponents();
-        startAll();
+
+        function doDefaultCentering() {
+            mapCenter = [39.994239,-0.068107];
+            startAll();
+        }
+
+        function doIPCentering(data) {
+            if (data && data.latitude && data.longitude)
+                mapCenter = [data.latitude, data.longitude];
+            startAll();
+        }
+
+        /*$.ajax({
+            url: 'https://geolocation-db.com/json/',
+            dataType: "json",
+            cache: true,
+            method: 'GET',
+            success: function (response) {
+                doIPCentering(response);
+            }.bind(this),
+            error: function (response) {
+                doDefaultCentering();
+                return false;
+            }.bind(this)
+        });*/
+
+        doDefaultCentering();
     });
 
 
@@ -1129,7 +1154,7 @@
                 createAll(map1, $("#draw_poly"), $("#delete_poly"));
             }
         });
-        map1.setView(mapCenter, 12);
+        map1.setView(mapCenter, 16);
 
         // Small Map
         var mapxs = L.map('map2');
@@ -1138,7 +1163,7 @@
                 createAll(mapxs, $("#draw_polyxs"), $("#delete_polyxs"));
             }
         });
-        mapxs.setView(mapCenter, 12);
+        mapxs.setView(mapCenter, 16);
 
         function createAll(rmap, bdraw, bdelete) {
             map = rmap;
