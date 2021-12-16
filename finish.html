@@ -49,28 +49,11 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div id="map" style="height:80vh; position: relative;">
-          <div style="position: absolute; top: 10px; left: 210px; z-index: 998; background-color: #fff; padding-left: 3px; padding-right: 3px">
+          <div id="map-desc" style="position: absolute; top: 10px; z-index: -1; background-color: #fff; padding-left: 3px; padding-right: 3px">
             <h4 langkey="finish1">Estas são as suas áreas importantes!</h4>
           </div>
-          <div  class="legend" style="position: absolute; bottom: 5px; left: 10px; z-index: 998">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="float: left; margin: 0px; padding: 0px">
-              <div class="foo blue"></div>
-              <div class="legend-name" style="margin-right: 20px">
-                <span langkey="finish2">Sentido do local</span>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="float: left;margin: 0px; padding: 0px">
-              <div class="foo purple"></div>
-              <div class="legend-name" style="margin-right: 20px">
-                <span langkey="finish3">Capital social</span>
-              </div>
-            </div>
-            <!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="float: left; margin: 0px; padding: 0px">
-              <div class="foo wine"></div>
-              <div class="legend-name">
-                <span langkey="finish4">Comprometimento cívico </span>
-              </div>
-            </div>-->
+          <div class="legend" style="position: absolute; bottom: 5px; left: 10px; z-index: 998">
+
           </div> <!-- /.legend -->
         </div> <!-- /#map -->
       </div> <!-- /.panel-body -->
@@ -279,7 +262,7 @@
               <option value="PH">Philippines</option>
               <option value="PN">Pitcairn</option>
               <option value="PL">Poland</option>
-              <option value="PT" selected="selected">Portugal</option>
+              <option value="PT">Portugal</option>
               <option value="PR">Puerto Rico</option>
               <option value="QA">Qatar</option>
               <option value="RE">Réunion</option>
@@ -310,7 +293,7 @@
               <option value="ZA">South Africa</option>
               <option value="GS">South Georgia and the South Sandwich Islands</option>
               <option value="SS">South Sudan</option>
-              <option value="ES">Spain</option>
+              <option value="ES" selected="selected">Spain</option>
               <option value="LK">Sri Lanka</option>
               <option value="SD">Sudan</option>
               <option value="SR">Suriname</option>
@@ -419,22 +402,11 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <div id="map2" style="height:83vh; position: relative;">
-                <div style="position: absolute; top: 10px; left: 100px; z-index: 998; background-color: #fff; padding-left: 3px; padding-right: 3px">
+                <div id="map-desc2" style="position: absolute; top: 10px; left: 100px; z-index: -1; background-color: #fff; padding-left: 3px; padding-right: 3px">
                   <h4><span langkey="finish1">Estas são as suas áreas importantes!</span></h4>
                 </div>
-                <div  class="legend" style="position: absolute; bottom: 5px; left: 10px; z-index: 998">
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="float: left; margin: 0px; padding: 0px">
-                      <div class="foo blue"></div>
-                      <div class="legend-name" style="margin-right: 20px"><span langkey="finish2">Sense Of Place</span></div>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="float: left;margin: 0px; padding: 0px">
-                      <div class="foo purple"></div>
-                    <div class="legend-name" style="margin-right: 20px"> <span langkey="finish3">Social Capital</span></div>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="float: left; margin: 0px; padding: 0px">
-                      <div class="foo wine"></div>
-                    <div class="legend-name"> <span langkey="finish4">Civic engagement </span></div>
-                  </div>
+                <div class="legend" style="position: absolute; bottom: 5px; left: 10px; z-index: 998">
+
                 </div>
               </div> <!-- map -->
             </div> <!-- /.panel-body -->

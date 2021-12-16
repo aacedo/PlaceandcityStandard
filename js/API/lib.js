@@ -300,16 +300,22 @@ appHelper = {
 		return geoJson;
 	},
 	obtainSC: function (doc) {
-		var geoJson = appHelper.getEmptyGeoJson();
-		var groups = doc.SC.groups;
+	    const SCGroups = [];
+		const groups = doc.SC.groups;
 		for (var j = 0; j < groups.length; j++) {
-			var areas = groups[j].areas;
+            const geoJson = appHelper.getEmptyGeoJson();
+			const areas = groups[j].areas;
 			for (var i = 0; i < areas.length; i++) {
-				var other = JSON.parse(areas[i].layer);
-				geoJson.features = geoJson.features.concat(other.features);
+				const areaLayer = JSON.parse(areas[i].layer);
+				geoJson.features = geoJson.features.concat(areaLayer.features);
 			}
+
+			SCGroups.push({
+                geoJson: geoJson,
+                name: groups[j].name,
+            });
 		}
-		return geoJson;
+		return SCGroups;
 	},
 	obtainSOP: function (doc) {
 		var geoJson = appHelper.getEmptyGeoJson();
@@ -405,8 +411,8 @@ app = {
 			var scRef = db.collection(appHelper.collection).doc(id);
 			scRef.get().then(function(doc) {
 				if (doc.exists) {
-					var geoJson = appHelper.obtainSC(doc.data());
-					callback({geoJson:geoJson, id:id});
+					const SCGroups = appHelper.obtainSC(doc.data());
+					callback({SCGroups: SCGroups, id: id});
 				} else {
 					callback(false);
 				}

@@ -149,6 +149,19 @@ function startMapComponents(){
             return !((rect.top == 0) && (rect.left == 0) && (rect.bottom == 0) && (rect.right == 0));
         }
 
+        function updateMapTitlePosition(map, title) {
+            const mapWidth = $(map).outerWidth();
+            const jqTitle = $(title);
+            const descWidth = jqTitle.outerWidth();
+
+            const descLeft = mapWidth / 2 - descWidth / 2;
+            jqTitle.css({left: descLeft});
+            jqTitle.css("z-index", 998);
+
+            if (jqTitle.hasClass("hidden"))
+                jqTitle.removeClass("hidden").addClass("show");
+        }
+
         var map1 = L.map('map', {
             scrollWheelZoom: false,
         });
@@ -157,7 +170,8 @@ function startMapComponents(){
                 createAll(map1);
             }
         });
-        map1.setView([38.7500, -9.1500], 12);
+        map1.setView([39.994239,-0.068107], 16);
+        updateMapTitlePosition("#map", "#map-desc");
 
         var mapxs = L.map('map2');
         mapxs.on('load', function (e) {
@@ -165,7 +179,13 @@ function startMapComponents(){
                 createAll(mapxs);
             }
         });
-        mapxs.setView([38.7500, -9.1500], 12);
+        mapxs.setView([39.994239,-0.068107], 16);
+        updateMapTitlePosition("#map2", "#map-desc2");
+
+        $(window).on('resize', () => {
+            updateMapTitlePosition("#map", "#map-desc");
+            updateMapTitlePosition("#map2", "#map-desc2");
+        });
     }
     catch (err){
         console.error(err.message);
@@ -344,52 +364,41 @@ function startOverpassComponents() {
 
 function areasLoading() {
     try {
-        // var id = util.getFromLocalStorage(util.interPageDataKey);
-        //var id = "589888c01c0856701818e512";
-        var SOPLayers, SCLayers, CELayers;
-
-        var count = 0;
-        var SOPStyle = function (feature) {
-            return {color: "#ff0000"};
-        };
-        var SCStyle = function (feature) {
-            return {color: "#4080ff"};
-            /*if (count++ >=   2){
-             return {color: "#6000ff"};
-             }
-             else{
-             return {color: "#4080ff"};
-             }*/
-        };
-        var CEStyle = function (feature) {
-            return {color: "#00ff00"};
-        };
+        var GenerateColor = function(feature) {
+            return "#" + Math.floor(Math.random() * 16777215).toString(16);
+        }
 
         var group = new L.featureGroup();
 
-        app.getSOP(id, function (SOPLayersGeoJson) {
-            var geoJson = /*JSON.parse(*/SOPLayersGeoJson.geoJson/*)*/;
-            var sopLayer = L.geoJson(geoJson, {style: SOPStyle});
-            sopLayer.addTo(map);
-            group.addLayer(sopLayer);
+        app.getSC(id, function (SCLayersGeoJson) {
+            if (!SCLayersGeoJson)
+                return;
 
-            app.getSC(id, function (SCLayersGeoJson) {
-                var geoJson = /*JSON.parse(*/SCLayersGeoJson.geoJson/*)*/;
-                var scLayer = L.geoJson(geoJson, {style: SCStyle});
-                scLayer.addTo(map);
-                group.addLayer(scLayer);
+            const groups = SCLayersGeoJson.SCGroups;
+            $("#legend")
+            groups.forEach((SCgroup) => {
+                const geoJson = SCgroup.geoJson;
+                const name = SCgroup.name;
 
-                app.getCE(id, function (CELayersGeoJson) {
-                    var geoJson = /*JSON.parse(*/CELayersGeoJson.geoJson/*)*/;
-                    var ceLayer = L.geoJson(geoJson, {style: CEStyle});
-                    ceLayer.addTo(map);
-                    group.addLayer(ceLayer);
-
-                    map.fitBounds(group.getBounds(), null);
+                const groupColor = GenerateColor();
+                console.log(groupColor);
+                const groupLayer = L.geoJson(geoJson, { style: function (feature) {
+                        return { color: groupColor };
+                    }
                 });
+                groupLayer.addTo(map);
+                group.addLayer(groupLayer);
+
+                const groupLegendDivStart = '<div className="col-lg-4 col-md-4 col-sm-4 col-xs-12"style="float: left; margin: 0px; padding: 0px">';
+                const groupLegendColor = '<div class="foo" style="background-color: ' + groupColor + '"></div>';
+                const groupLegendName = '<div class="legend-name" style="margin-right: 20px"><span>' + name + '</span></div>';
+
+                const groupLegend = groupLegendDivStart + groupLegendColor + groupLegendName + '</div>';
+                $(".legend").append(groupLegend);
+
+                map.fitBounds(group.getBounds(), null);
             });
         });
-
     }
     catch (err){
         console.error(err.message);
