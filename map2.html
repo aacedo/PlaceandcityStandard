@@ -331,18 +331,6 @@
 
         <!-- ---------------------- Questions Bonding bridging ---------------------- -->
         <div class="hidden" id="questions_bonding_bridging">
-          <p style="margin-top: 20px; font-weight: bold;" langkey="map2-32">
-            Reside nesta área?
-          </p>
-          <div>
-            <label class="radio-inline">
-              <input type="radio" name="live" value="true"> <span langkey="index5">Sim</span>
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="live" value="false" checked="checked"> <span langkey="index6">Não</span>
-            </label>
-          </div>
-          <br>
           <div class="no-float"></div>
           <p style="margin-top: 40px; font-weight: bold;" langkey="map2-33"> 
             Em relação à área que
@@ -1152,7 +1140,7 @@
 
         // Big Map
         var map1 = L.map('map', {
-            scrollWheelZoom: false,
+            scrollWheelZoom: true,
         });
         map1.on('load', function (e) {
             if (isElementInViewport($('#map'))) {
