@@ -7,7 +7,6 @@ var SC = [];
 var currGroup;
 var areasdrawn = 0;
 var name_groups =[];
-var current_group = [];
 var number = 0;
 var spatialyes = 0;
 var contador = 0;
@@ -22,7 +21,7 @@ function startAll() {
 
 
     $('#plus_group').click(function () {
-        if (!$('#actual_group').val()&& (name_groups.length == 0)){
+        if (!$('#actual_group').val()&& (name_groups.length === 0)){
             alert(translator.getKeyLanguageValue("general7"));
         }
         else if(!$('#actual_group').val() && (name_groups.length > 0)){
@@ -32,39 +31,50 @@ function startAll() {
             name_groups.push($('#actual_group').val());
             $('#actual_group').val("");
             namesgroups();
-            contador++;
+            $("#your_groups_label").removeClass("hidden").addClass("show");
+            $("#continuar1").removeClass("hidden").addClass("show");
         }
 
     });
 
 
     function namesgroups() {
-        if (name_groups.length > 0) {
-            var text_groups = "";
-            for (i = 0; i < name_groups.length; i++) {
-                current_group[i] = name_groups[i];
-                text_groups = text_groups + '<br>' + translator.getKeyLanguageValue("general19") + ": " + current_group[i];
-            }
-            $("#words1").html(text_groups);
-            $("#continuar1").removeClass("hidden").addClass("show");
-
+        const totalGroups = name_groups.length;
+        if (totalGroups > 0) {
+            const newGroup = name_groups[totalGroups - 1];
+            const removeLink = '<a class="button-remove glyphicon glyphicon-trash" style="margin-left: 10px;"></a>'
+            const entry = "<li>" + newGroup + removeLink + "</li>"
+            $("#group_list").append(entry)
+            contador++;
         }
     }
 
-    $( "#actual_group" ).keypress(function( event ) {
+    function removeGroupByName(name) {
+        name_groups = name_groups.filter((group) => group !== name);
+        contador--;
+        if (name_groups.length === 0) {
+            contador = 0;
+            $("#continuar1").removeClass("show").addClass("hidden");
+            $("#your_groups_label").removeClass("show").addClass("hidden");
+        }
+    }
 
+    $(document).on('click', ".button-remove", function(e){
+        const entry = $(this).parent();
+        const nameGroup = entry[0].innerText;
+        removeGroupByName(nameGroup);
+        entry.remove();
+    });
+
+    $( "#actual_group" ).keypress(function( event ) {
         if (!$('#actual_group').val()){
-            if (contador==0){
+            if (contador===0){
                 $("#continuar1").removeClass("show").addClass("hidden");
             }
             else {
                 $("#continuar1").removeClass("hidden").addClass("show");
             }
         }
-        else {
-            $("#continuar1").removeClass("show").addClass("hidden");
-        }
-
     });
 
     $("#actual_group").keyup((event) => {

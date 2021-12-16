@@ -118,7 +118,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <!-- ----------------- Social capital explanation ---------------- -->
-        <div class="show" id="groups_done">
+        <div class="show" id="groups_done" style="text-align: justify">
           <p>
             <span langkey="map2-1">Gostaria de começar por lhe perguntar sobre grupos de pessoas ou organizações, redes ou associações a que pertença.<br><br>Podem ser grupos formalmente organizados (grupos religiosos, de familiares, desportivos, de local de trabalho... ) o pura e simplesmente grupos de pessoas que que se juntam regularmente para realizar uma atividade ou falar sobre vários assuntos.</span>
           </p>
@@ -141,8 +141,9 @@
           </ul>
           <span langkey="map2-99">Puedes añadir tantas palabras como grupos tengas. Cuando acabes de introducirlas, clica el botón siguiente.</span>
           <b langkey="index9"></b>
-          <br><br><br>
-          <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-lg-9 col-md-9 col-sm-9 col-xs-12">
+          <br>
+
+          <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-12" style="margin-top: 30px;">
             <div class="input-group">
               <input type="text" class="form-control" id="actual_group" placeholder="">
               <span class="input-group-btn">
@@ -152,8 +153,12 @@
               </span>
             </div>
           </div>
-          <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-lg-9 col-md-9 col-sm-9 col-xs-12" style="margin-top: 10px">
-            <p style="font-size: 14px" id="words1"></p>
+
+          <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-12" style="margin-top: 20px">
+            <p id="your_groups_label" class="hidden" style="font-size: 110%; font-weight: bold; text-align: center" langkey="your_groups">Tus grupos:</p>
+            <ul id="group_list" style="text-align: center; list-style-type: none; padding-inline-start: 0px">
+
+            </ul>
           </div>
           <div class="no-float"></div>
           <div class="float-right hidden" id="continuar1" style="margin-top: 20px">
