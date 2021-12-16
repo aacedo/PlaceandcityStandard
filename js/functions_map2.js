@@ -91,6 +91,8 @@ function startAll() {
             $("#groups_done").toggleClass("hidden show");
             namegroup();
 
+            progressBar.set(30);
+
             $("#group_name_nature").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
 
             $('#myModal3').modal('show');
@@ -342,6 +344,8 @@ function startAll() {
             showAllGroups();
             $("#select_group").toggleClass("hidden show");
             $("#another_draw").toggleClass("hidden show");
+
+            progressBar.set(70);
         }
         else {
             number = number + 1;
@@ -511,6 +515,7 @@ function startAll() {
                 alert(translator.getKeyLanguageValue("general1"));
             }
             else {
+                progressBar.set(90);
                 util.redirectToPage({
                     url: "finish.html",
                     payload: {id:response.id, center: mapCenter}

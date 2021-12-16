@@ -79,6 +79,7 @@ function startOthers() {
                             alert(translator.getKeyLanguageValue("general1"));
                         }
                         else {
+                            progressBar.set(100);
                             alert(translator.getKeyLanguageValue("general159"));
                             /*util.redirectToPage({
                                 url: "globalEnd.html",
@@ -110,6 +111,7 @@ function startOthers() {
                         alert(translator.getKeyLanguageValue("general1"));
                     }
                     else {
+                        progressBar.set(100);
                         alert(translator.getKeyLanguageValue("general159"));
                        /* util.redirectToPage({
                             url: "globalEnd.html",

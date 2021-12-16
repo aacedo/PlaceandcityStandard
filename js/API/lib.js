@@ -502,3 +502,12 @@ app = {
 			});
     }
 };
+
+progressBar = {
+    set: function (value) {
+        const progressBar = $(".progress-bar");
+        progressBar.text(value + "%");
+        progressBar.attr("aria-valuenow", value);
+        progressBar.css("width", value + "%");
+    }
+}
